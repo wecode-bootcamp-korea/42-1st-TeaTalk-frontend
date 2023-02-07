@@ -1,3 +1,5 @@
+import './Productlist';
+
 function Productlist() {
   return <div>Productlist</div>;
 }
