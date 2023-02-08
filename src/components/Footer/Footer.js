@@ -26,7 +26,7 @@ function Footer() {
         </div>
         <div className="order">
           <p>특판, 대량구매 문의</p>
-          <a href="">help@osulloc.com</a>
+          <a href="">as13ljh@ghlgmail.com</a>
           <p>카카오톡ID : TeaTalkmall</p>
           <p>평일 09:30 - 17:00 (점심 11:30 - 13:00)</p>
         </div>
