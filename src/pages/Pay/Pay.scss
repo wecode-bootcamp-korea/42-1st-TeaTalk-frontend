@@ -1,0 +1,21 @@
+.pay {
+  h1 {
+    height: auto;
+    padding: 48px 0 30px;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: initial;
+  }
+
+  .firstSubTitle {
+    border-top: 2px solid #333;
+  }
+
+  .orderInfo {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+}
