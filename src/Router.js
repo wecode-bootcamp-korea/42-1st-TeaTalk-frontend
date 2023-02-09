@@ -16,16 +16,17 @@ const Router = () => {
     <BrowserRouter>
       <Nav />
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/main" element={<Main />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/mypage" element={<Mypage />} />
-        <Route path="/pay" element={<Pay />} />
-        <Route path="/productdetail" element={<Productdetail />} />
-        <Route path="/productlist" element={<Productlist />} />
+        <Route element={<Footer />}>
+          <Route path="/" element={<Main />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/mypage" element={<Mypage />} />
+          <Route path="/pay" element={<Pay />} />
+          <Route path="/productdetail" element={<Productdetail />} />
+          <Route path="/productlist" element={<Productlist />} />
+        </Route>
+        <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
-      <Footer />
     </BrowserRouter>
   );
 };
