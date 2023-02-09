@@ -12,8 +12,11 @@ function Signup() {
   const [checkPw, setCheckPw] = useState('');
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [birthday, setBirthday] = useState('');
   const [name, setName] = useState('');
   const [error, setError] = useState('');
+  const [male, setMale] = useState(false);
+  const [female, setFemale] = useState(false);
   const navigate = useNavigate();
 
   const getId = e => {
@@ -42,6 +45,18 @@ function Signup() {
     setName(e.target.value);
   };
 
+  const getBirthday = e => {
+    setBirthday(e.target.value);
+  };
+
+  const getMale = e => {
+    setMale(e.target.value);
+  };
+
+  const getFemale = e => {
+    setFemale(e.target.value);
+  };
+
   // 모달창 노출
   const showModal = () => {
     setModalOpen(true);
@@ -56,7 +71,27 @@ function Signup() {
   };
 
   const goToMain = () => {
-    navigate('/main');
+    //navigate('/main');
+    fetch('http://10.58.52.150:8000/users/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({
+        account: id,
+        password: pw,
+        email: email,
+        name: name,
+        phoneNum: phoneNumber,
+        birthdate: birthday,
+        gender: '',
+      }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        navigate('/main');
+      });
   };
 
   const waringPw = () => {
@@ -69,16 +104,9 @@ function Signup() {
     }
   };
 
-  // const checkEmail = () => {
-  //   if (email.includes('@')) {
-  //     return '이메일 형식이 올바르지 않습니다.';
-  //   }
-  // };
-
   const isDisabledJoin =
     id.length > 0 &&
     pw.length > 0 &&
-    //regex.test(email) === false &&
     email.length > 0 &&
     phoneNumber.length > 0 &&
     name.length > 0;
@@ -132,6 +160,7 @@ function Signup() {
             type="text"
             placeholder="생년월일(YYYY.MM.DD)"
             maxLength="10"
+            onChange={getBirthday}
           />
           <input
             className="phoneNumber"
@@ -144,9 +173,17 @@ function Signup() {
         <div className="gender">
           <span>성별 : </span>
           <span>남</span>
-          <input type="checkbox" />
+          <input
+            type="checkbox"
+            onChange={getMale}
+            disabled={female === false ? false : true}
+          />
           <span>여</span>
-          <input type="checkbox" />
+          <input
+            type="checkbox"
+            onChange={getFemale}
+            disabled={male === false ? false : true}
+          />
         </div>
       </div>
       <div className="checkboxWrap">
