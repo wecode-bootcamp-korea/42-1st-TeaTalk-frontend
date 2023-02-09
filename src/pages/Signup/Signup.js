@@ -38,6 +38,7 @@ function Signup() {
   const getPhoneNumber = e => {
     setPhoneNumber(e.target.value);
   };
+
   const getName = e => {
     setName(e.target.value);
   };

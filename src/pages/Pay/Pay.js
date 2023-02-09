@@ -4,12 +4,18 @@ import './Pay.scss';
 function Pay() {
   const [orderName, setOrderName] = useState('');
   const [phoneNumber, setPhonNumber] = useState('');
+  const [choiceEmail, setChoiceEmail] = useState(true);
   const [receiver, setReceiver] = useState('');
+  const [receiverPhoneNum, setReceiverPhoneNum] = useState('');
+
+  const getOrderEmail = e => {
+    setChoiceEmail(e.target.value);
+  };
+  console.log(choiceEmail);
 
   const getReceiverName = e => {
     setReceiver(e.target.value);
   };
-
   const getOrederName = e => {
     setOrderName(e.target.value);
   };
@@ -17,7 +23,12 @@ function Pay() {
     setPhonNumber(e.target.value);
   };
 
-  const sameAdressWithOrder = () => {};
+  const sameAdressWithOrder = () => {
+    setReceiver(orderName);
+    setReceiverPhoneNum(phoneNumber);
+  };
+
+  const makeEmailInput = () => {};
 
   return (
     <div className="pay">
@@ -33,7 +44,7 @@ function Pay() {
         <tr>
           <th>이름</th>
           <td>
-            <input type="text" onChange={getOrederName} />
+            <input type="text" onChange={getOrederName} value={orderName} />
           </td>
         </tr>
         <tr>
@@ -48,9 +59,11 @@ function Pay() {
                   <option>hanmail.net</option>
                   <option>gmail.net</option>
                   <option>nate.com</option>
-                  <option>직접입력</option>
-                  <option />
+                  <option onChange={getOrderEmail} onClick={makeEmailInput}>
+                    직접입력
+                  </option>
                 </select>
+                <input type="text" />
               </div>
             </div>
           </td>
@@ -96,14 +109,18 @@ function Pay() {
           <th>받는분</th>
           <td>
             <div>
-              <input type="text" onChange={receiver} />
+              <input type="text" onChange={getReceiverName} value={receiver} />
             </div>
           </td>
         </tr>
         <tr>
           <th>연락처</th>
           <div>
-            <input type="number" placeholder="'-'없이 휴대폰번호 입력" />
+            <input
+              type="number"
+              placeholder="'-'없이 휴대폰번호 입력"
+              value={receiverPhoneNum}
+            />
           </div>
         </tr>
         <tr>
