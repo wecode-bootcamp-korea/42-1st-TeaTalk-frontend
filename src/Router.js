@@ -10,13 +10,13 @@ import Pay from './pages/Pay/Pay';
 import Productdetail from './pages/Productdetail/Productdetail';
 import Productlist from './pages/Productlist/Productlist';
 import Signup from './pages/Signup/Signup';
+import Container from './components/Container/Container';
 
 const Router = () => {
   return (
     <BrowserRouter>
-      <Nav />
       <Routes>
-        <Route element={<Footer />}>
+        <Route element={<Container />}>
           <Route path="/" element={<Main />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/mypage" element={<Mypage />} />

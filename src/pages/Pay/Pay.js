@@ -4,6 +4,11 @@ import './Pay.scss';
 function Pay() {
   const [orderName, setOrderName] = useState('');
   const [phoneNumber, setPhonNumber] = useState('');
+  const [receiver, setReceiver] = useState('');
+
+  const getReceiverName = e => {
+    setReceiver(e.target.value);
+  };
 
   const getOrederName = e => {
     setOrderName(e.target.value);
@@ -91,7 +96,7 @@ function Pay() {
           <th>받는분</th>
           <td>
             <div>
-              <input type="text" />
+              <input type="text" onChange={receiver} />
             </div>
           </td>
         </tr>
