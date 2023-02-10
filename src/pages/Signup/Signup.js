@@ -190,9 +190,12 @@ function Signup() {
         <div className="termsCheckList">
           <input type="checkbox" checked={checkAll} onChange={allBtnEvent} />
           <span>모든 약관 및 정보 수신 동의</span>
-          <button className="modalBtn" onClick={showModal}>
-            더보기
-          </button>
+          <img
+            className="modalBtn"
+            onClick={showModal}
+            src="images/signup/more.png"
+            alt="more"
+          />
           <br />
           {modalOpen === true ? (
             <Modal setModalOpen={setModalOpen} checkBox={setCheckAll} />
