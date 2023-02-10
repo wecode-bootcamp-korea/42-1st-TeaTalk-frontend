@@ -1,9 +1,10 @@
-import { Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Navlogin.scss';
+import '../../../styles/common.scss';
 
 function Navlogin({ setNavlogin }) {
   return (
-    <div className="navlogin">
+    <div className="navLogin">
       <ul>
         <Link to="/Login">
           <li>로그인</li>

@@ -1,9 +1,8 @@
-import './NavModal.scss';
 import { NAVBAR_LIST } from '../Nav';
+import './NavModal.scss';
+import '../../../styles/common.scss';
 
 function NavModal({ currentMenuId, setCurrentMenuId }) {
-  // const [currentMenuId, setCurrentMenuId] = useState();
-
   return (
     <div className="navModal">
       <div className="modalinner" onMouseLeave={() => setCurrentMenuId()}>
