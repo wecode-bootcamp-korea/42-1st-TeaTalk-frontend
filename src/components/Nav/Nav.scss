@@ -1,0 +1,97 @@
+.nav {
+  display: flex;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 90px;
+
+  background-color: white;
+  color: black;
+
+  .startHeader {
+    width: 15%;
+    height: 50px;
+    // border: solid 1px black;
+
+    .logo {
+      width: 80%;
+    }
+  }
+
+  .secondHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 20%;
+    height: 100%;
+    // border: solid 1px rgb(74, 32, 197);
+
+    .navMenuWrap {
+      // border: 1px solid red;
+    }
+
+    .navMenu {
+      height: 80px;
+      padding-top: 30px;
+
+      .navMenuTitle {
+        font-size: 20px;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .thirdHeader {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    width: 40%;
+    height: 100%;
+    // border: solid 1px black;
+
+    .cartWrap {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      // border: solid 1px black;
+
+      .cartImg {
+        height: 30px;
+        // width: 80%;
+        margin: 20px;
+
+        // border: solid 1px black;
+      }
+    }
+    .infoWrap {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      // border: solid 1px black;
+
+      .infoImg {
+        height: 30px;
+        // width: 80%;
+        margin: 20px;
+        // border: solid 1px black;
+      }
+    }
+  }
+  .endHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5%;
+    height: 100%;
+    // border: solid 1px black;
+
+    .endHeaderLogin {
+      width: 50px;
+      margin: auto;
+      // border: solid 1px black;
+    }
+  }
+}
