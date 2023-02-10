@@ -1,21 +1,233 @@
 .pay {
-  h1 {
-    height: auto;
-    padding: 48px 0 30px;
-    font-size: 28px;
-    font-weight: 500;
-    line-height: initial;
-  }
+  max-width: 1320px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 400px;
+  .allWrap {
+    h1 {
+      height: auto;
+      padding: 48px 0 30px;
+      font-size: 28px;
+      font-weight: 500;
+      line-height: initial;
+    }
 
-  .firstSubTitle {
-    border-top: 2px solid #333;
-  }
+    .orderInfo {
+      padding-top: 20px;
+      padding-right: 20px;
+      padding-bottom: 20px;
+      padding-left: 20px;
+      border-top: 2px solid #333;
 
-  .orderInfo {
-    display: flex;
-    position: relative;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
+      .firstSubTitle {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        p {
+          font-size: 25px;
+        }
+        .nameAndPhone {
+          margin-right: 32px;
+          color: green;
+          font-size: 18px;
+          font-weight: 350;
+        }
+      }
+      .orderName {
+        display: flex;
+        margin-bottom: 20px;
+
+        p {
+          width: 78px;
+          padding-top: 14px;
+          padding-right: 34px;
+          font-size: 17px;
+        }
+        input {
+          width: 769px;
+          height: 40px;
+          margin-right: 4px;
+        }
+      }
+      .emailDiv {
+        display: flex;
+        max-width: 860px;
+        margin-bottom: 20px;
+
+        .email {
+          padding-top: 14px;
+          padding-right: 34px;
+          font-size: 17px;
+        }
+        .emailInputWrap {
+          display: flex;
+          width: 769px;
+
+          input {
+            width: 45%;
+            height: 40px;
+          }
+          .Character {
+            width: 10%;
+            padding-top: 13px;
+            padding-right: 15px;
+            padding-left: 15px;
+          }
+          .select {
+            width: 45%;
+            // width: 500px;
+            height: 40px;
+          }
+          .addInput {
+            margin-left: 5px;
+          }
+        }
+      }
+      .phoneContainer {
+        display: flex;
+        max-width: 860px;
+        margin-bottom: 20px;
+        p {
+          padding-top: 14px;
+          padding-right: 20px;
+          font-size: 17px;
+        }
+        .phoneWrap {
+          display: flex;
+          width: 769px;
+
+          input {
+            width: 100%;
+            height: 40px;
+          }
+        }
+      }
+      .orederContainer {
+        display: flex;
+        max-width: 860px;
+        margin-bottom: 20px;
+        p {
+          padding-top: 14px;
+          padding-right: 20px;
+          font-size: 17px;
+        }
+        div {
+          display: flex;
+          width: 769px;
+          input {
+            width: 100%;
+            height: 40px;
+          }
+        }
+      }
+      .info {
+        max-width: 860px;
+        margin-bottom: 20px;
+        div {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          width: 775px;
+          height: 70px;
+          margin-left: 75px;
+          padding-left: 30px;
+          background-color: #ededed;
+          line-height: 1.4;
+          li {
+            color: #b8b8b8;
+          }
+          p {
+            font-size: 13px;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+    .deliveryInfo {
+      padding-top: 20px;
+      padding-right: 20px;
+      padding-bottom: 20px;
+      padding-left: 20px;
+      border-top: 1px solid #333;
+      .secondSubTitle {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        p {
+          font-size: 25px;
+        }
+        button {
+          margin-right: 35px;
+          transform: translateY(-30%);
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          background-color: white;
+          color: #666;
+          font-size: 13px;
+          line-height: 32px;
+          text-align: center;
+        }
+      }
+      .reciverContainer {
+        display: flex;
+        max-width: 860px;
+        margin-bottom: 20px;
+        p {
+          padding-top: 14px;
+          padding-right: 20px;
+          font-size: 17px;
+        }
+        .reciverWrap {
+          display: flex;
+          width: 780px;
+          input {
+            width: 100%;
+            height: 40px;
+          }
+        }
+      }
+      .phoneNumContainer {
+        display: flex;
+        max-width: 860px;
+        margin-bottom: 20px;
+        p {
+          padding-top: 14px;
+          padding-right: 20px;
+          font-size: 17px;
+        }
+        .phoneNumWrap {
+          display: flex;
+          width: 780px;
+          input {
+            width: 100%;
+            height: 40px;
+          }
+        }
+      }
+      .adressContainer {
+        p {
+          padding-top: 14px;
+          padding-right: 20px;
+          font-size: 17px;
+        }
+        .postNum {
+          display: flex;
+          width: 780px;
+          border: solid red;
+          input {
+          }
+          button {
+            width: 100%;
+            height: 40px;
+          }
+        }
+        div {
+          display: flex;
+          width: 780px;
+          input {
+          }
+        }
+      }
+    }
   }
 }
