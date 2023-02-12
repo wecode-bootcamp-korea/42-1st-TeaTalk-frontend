@@ -1,12 +1,9 @@
 import { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import Modal from './terms';
+import { useNavigate } from 'react-router-dom';
+import Terms from './Terms';
 import './Signup.scss';
 
 function Signup() {
-  // 모달창 노출 여부 state
-  const [modalOpen, setModalOpen] = useState(false);
-  const [checkAll, setCheckAll] = useState(false);
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
   const [checkPw, setCheckPw] = useState('');
@@ -17,6 +14,7 @@ function Signup() {
   const [error, setError] = useState('');
   const [male, setMale] = useState(false);
   const [female, setFemale] = useState(false);
+  const [toggle, setToggle] = useState(null);
   const navigate = useNavigate();
 
   const getId = e => {
@@ -51,23 +49,12 @@ function Signup() {
 
   const getMale = e => {
     setMale(e.target.value);
+    setToggle(!toggle);
   };
 
   const getFemale = e => {
     setFemale(e.target.value);
-  };
-
-  // 모달창 노출
-  const showModal = () => {
-    setModalOpen(true);
-  };
-
-  const allBtnEvent = () => {
-    if (checkAll === false) {
-      setCheckAll(true);
-    } else {
-      setCheckAll(false);
-    }
+    setToggle(!toggle);
   };
 
   const goToMain = () => {
@@ -104,12 +91,30 @@ function Signup() {
     }
   };
 
+  // const isMaleCheckbox = () => {
+  //   if (male === true) {
+  //     female(false);
+  //   } else {
+  //     female(true);
+  //   }
+  // };
+
+  // const isFemaleCheckbox = () => {
+  //   if (female === true) {
+  //     male(false);
+  //   } else {
+  //     male(true);
+  //   }
+  // };
+
   const isDisabledJoin =
-    id.length > 0 &&
-    pw.length > 0 &&
-    email.length > 0 &&
-    phoneNumber.length > 0 &&
-    name.length > 0;
+    (id.length > 0 &&
+      pw.length > 0 &&
+      email.length > 0 &&
+      phoneNumber.length > 0 &&
+      name.length > 0 &&
+      male === true) ||
+    female === true;
 
   const regex =
     /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
@@ -176,32 +181,23 @@ function Signup() {
           <input
             type="checkbox"
             onChange={getMale}
-            disabled={female === false ? false : true}
+            checked={!toggle}
+            // disabled={female === true ? true : female}
+            //onClick={isMaleCheckbox}
+            //disabled={isMaleCheckbox}
           />
           <span>여</span>
           <input
             type="checkbox"
             onChange={getFemale}
-            disabled={male === false ? false : true}
+            checked={toggle}
+            // disabled={male === true ? true : male}
+            //onClick={isFemaleCheckbox}
+            //disabled={isFemaleCheckbox}
           />
         </div>
       </div>
-      <div className="checkboxWrap">
-        <div className="termsCheckList">
-          <input type="checkbox" checked={checkAll} onChange={allBtnEvent} />
-          <span>모든 약관 및 정보 수신 동의</span>
-          <img
-            className="modalBtn"
-            onClick={showModal}
-            src="images/signup/more.png"
-            alt="more"
-          />
-          <br />
-          {modalOpen === true ? (
-            <Modal setModalOpen={setModalOpen} checkBox={setCheckAll} />
-          ) : null}
-        </div>
-      </div>
+      <Terms />
       <span className="btnWarp">
         <button className="exitSignup" onClick={goToMain}>
           다음에 하기

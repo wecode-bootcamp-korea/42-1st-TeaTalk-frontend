@@ -12,87 +12,65 @@
   padding: 10px 20px 11px;
   border: solid #e6e6e6 1px;
   border-radius: 10px;
-}
 
-.signupGuide {
-  width: 380px;
-  height: 50px;
-  margin: 20px auto 20px;
-  color: #000;
-  font-size: 23px;
-  font-style: normal;
-  font-weight: bold;
-  line-height: 1.4;
-  text-align: center;
-}
-
-.userInfo {
-  display: flex;
-  flex-direction: column;
-  max-width: 520px;
-  margin: 0 auto;
-  padding: 10px 20px;
-  color: #252525;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 2;
-
-  input {
-    height: 35px;
-    margin-bottom: 20px;
+  .signupGuide {
+    width: 380px;
+    height: 50px;
+    margin: 20px auto 20px;
+    color: #000;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 1.4;
+    text-align: center;
   }
-  .pwGreenMsg {
-    position: absolute;
-    margin-top: 197px;
-    color: green;
-    font-size: 12px;
-  }
-  .pwRedMsg {
-    position: absolute;
-    margin-top: 197px;
-    color: red;
-    font-size: 12px;
-  }
-
-  .eRedMsg {
-    position: absolute;
-    margin-top: 252px;
-    color: red;
-    font-size: 12px;
-  }
-  .eGreenMsg {
-    position: absolute;
-    margin-top: 252px;
-    color: green;
-    font-size: 12px;
-  }
-}
-
-.gender {
-  display: flex;
-  max-width: 520px;
-  margin: 0 auto;
-  padding: 10px 20px;
-  color: #252525;
-  font-size: 16px;
-  font-weight: 400;
-}
-
-.checkboxWrap {
-  display: block;
-  max-width: 520px;
-  margin: 0 auto;
-  margin-top: 10px;
-  padding: 10px 20px 40px;
-  border: solid #e6e6e6 1px;
-  border-radius: 10px;
-
-  .termsCheckList {
+  .userInfo {
     display: flex;
-    margin-left: 10px;
-    .modalBtn {
-      width: 20px;
+    flex-direction: column;
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    color: #252525;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 2;
+    input {
+      height: 35px;
+      margin-bottom: 20px;
     }
+    .pwGreenMsg {
+      position: absolute;
+      margin-top: 197px;
+      color: green;
+      font-size: 12px;
+    }
+    .pwRedMsg {
+      position: absolute;
+      margin-top: 197px;
+      color: red;
+      font-size: 12px;
+    }
+    .eRedMsg {
+      position: absolute;
+      margin-top: 252px;
+      color: red;
+      font-size: 12px;
+    }
+    .eGreenMsg {
+      position: absolute;
+      margin-top: 252px;
+      color: green;
+      font-size: 12px;
+    }
+  }
+  .gender {
+    display: flex;
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    color: #252525;
+    font-size: 16px;
+    font-weight: 400;
   }
 }
 
@@ -140,7 +118,7 @@
     border-radius: 6px;
     background-color: #e6e6e6;
     color: #252525;
-    font-size: 14px;
+    font-size: 17px;
     line-height: 48px;
     cursor: not-allowed;
   }
