@@ -66,19 +66,6 @@ function Termsmodal({ checkAll, checkAllToggle }) {
     }
   };
 
-  useEffect(() => {
-    if (
-      firstCheckBox === true &&
-      secondCheckBox === true &&
-      thirdCheckBox === true &&
-      fourthCheckBox === true
-    ) {
-      check(true);
-    } else {
-      check(false);
-    }
-  }, [firstCheckBox, secondCheckBox, thirdCheckBox, fourthCheckBox]);
-
   return (
     <div>
       <div>회원 약관</div>
