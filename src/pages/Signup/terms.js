@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import Termsmodal from './Termsmodal';
 import './Terms.scss';
 import Detailmodal from './Detailmodal';
 
@@ -11,22 +10,6 @@ function Terms() {
   const [secondCheckBox, setSecondCheckBox] = useState(false);
   const [thirdCheckBox, setThirdCheckBox] = useState(false);
   const [fourthCheckBox, setFourthCheckBox] = useState(false);
-  const [checkAllToggle, setCheckAllToggle] = useState(false);
-
-  // const getFirstCheckBox = firstValue => {
-  //   setFirstCheckBox(firstValue);
-  // };
-  // const getSecondCheckBox = secondValue => {
-  //   console.log(secondValue);
-  // };
-  // const getThirdCheckBox = thirdeValue => {
-  //   console.log(thirdeValue);
-  // };
-  // const getFourthCheckBox = fourthValue => {
-  //   console.log(fourthValue);
-  // };
-
-  // console.log(setCheckAll);
 
   // 모달창 노출
   const showModal = () => {
@@ -41,7 +24,6 @@ function Terms() {
   // };
 
   const allBtnEvent = () => {
-    setCheckAllToggle(!checkAllToggle);
     if (checkAll === false) {
       setCheckAll(true);
       setFirstCheckBox(true);
@@ -102,16 +84,12 @@ function Terms() {
     }
   }, [firstCheckBox, secondCheckBox, thirdCheckBox, fourthCheckBox]);
 
-  // console.log(firstCheckBox);
-
   return (
     <div className="termsCheckList">
       <div className="allTermsAgree">
         <input type="checkbox" checked={checkAll} onClick={allBtnEvent} />
         모든 약관 및 정보 수신 동의
       </div>
-      {/* <span>모달창</span>
-          <button onClick={closeModal}>X</button> */}
       <li>회원 약관</li>
       <div className="checkboxWrap">
         <div className="firstCheckbox">
@@ -158,7 +136,6 @@ function Terms() {
           <span>[선택]개인정보 수집/이용 동의</span>
           <span className="more">더보기</span>
         </div>
-        <Termsmodal checkAll={checkAll} checkAllToggle={checkAllToggle} />
       </div>
     </div>
   );

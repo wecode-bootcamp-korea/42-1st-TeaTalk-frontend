@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Login.scss';
 
 function Login() {
@@ -26,7 +26,7 @@ function Login() {
   const isDisabled = id.length > 0 && pw.length > 1;
 
   return (
-    <div>
+    <div className="login">
       <div className="header">로그인</div>
       <hr />
       <section className="container">
@@ -66,11 +66,11 @@ function Login() {
             <hr />
           </form>
           <div className="findMenu">
-            <a href="">아이디 찾기</a>
+            <Link to="/">아이디 찾기</Link>
             <span>|</span>
-            <a href="">비밀번호 찾기</a>
+            <Link to="/">비밀번호 찾기</Link>
             <span>|</span>
-            <a href="">비회원 주문/조회</a>
+            <Link to="/">비회원 주문/조회</Link>
           </div>
           <button onClick={goToSignUp} className="joinMember">
             <span>아직 회원이 아니세요?</span>
