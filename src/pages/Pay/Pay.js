@@ -10,7 +10,7 @@ function Pay() {
   const [receiverPhoneNum, setReceiverPhoneNum] = useState('');
   const [selected, setSelected] = useState('');
   const [request, setrequest] = useState('');
-  const [modal, setModal] = useState(false);
+  const [isModal, setIsModal] = useState(false);
 
   const getReceiverName = e => {
     setReceiver(e.target.value);
@@ -140,13 +140,13 @@ function Pay() {
                 <input type="text" readOnly="readonly" />
                 <button
                   onClick={() => {
-                    setModal(!modal);
+                    setIsModal(!isModal);
                   }}
                 >
                   우편번호 찾기
                 </button>
               </div>
-              {modal === true ? (
+              {isModal === true ? (
                 <Searchadress parentFunction={parentFunction} />
               ) : null}
               <div className="reciverAdress">
