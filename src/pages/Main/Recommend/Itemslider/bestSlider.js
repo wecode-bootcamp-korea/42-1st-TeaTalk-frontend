@@ -1,19 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Product from '../../../Product/Product';
 import './bestSlider.scss';
 
 export default function BestSlider() {
-  const items = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+  const IMG_WIDTH = 212;
   const [index, setIndex] = useState(0);
   const [transform, setTransform] = useState(0);
+  const [itemList, setItemList] = useState([]);
+
+  useEffect(() => {
+    fetch('/data/productList.json')
+      .then(response => response.json())
+      .then(result => setItemList(result));
+  }, []);
 
   const increment = () => {
     setIndex(index + 1);
-    setTransform(previousTransform => previousTransform - 212);
+    setTransform(previousTransform => previousTransform - IMG_WIDTH);
   };
 
   const decrement = () => {
     setIndex(index - 1);
-    setTransform(previousTransform => previousTransform + 212);
+    setTransform(previousTransform => previousTransform + IMG_WIDTH);
   };
 
   return (
@@ -27,14 +35,17 @@ export default function BestSlider() {
             className="itemCtr"
             style={{ transform: `translateX(${transform}px)` }}
           >
-            {items.map(item => (
-              <div key={item} className="item">
-                <div className="item-content">{item + 1}</div>
-              </div>
-            ))}
+            {itemList.map((result, i) => {
+              const product = itemList[i];
+              return (
+                <div className="itemContent">
+                  <Product key={i} product={product} />
+                </div>
+              );
+            })}
           </div>
         </div>
-        <button className="btn" disabled={index === 4} onClick={increment}>
+        <button className="btn" disabled={index === 2} onClick={increment}>
           {'>'}
         </button>
       </div>

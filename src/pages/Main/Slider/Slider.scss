@@ -1,5 +1,3 @@
-// @import '../../../styles/variables';
-
 .containerSlider {
   position: relative;
   height: 640px;
@@ -33,7 +31,6 @@
       height: 50%;
       padding: 0 10px;
       transform: translateX(-50%);
-      // border: solid 1px black;
 
       .textBox {
         top: 50%;
@@ -92,7 +89,6 @@
     width: 60px;
     height: 60px;
     border: 1px solid transparent;
-    // border: solid 3px black;
     background: transparent;
     cursor: pointer;
 
@@ -113,31 +109,4 @@
     right: 50px;
     transform: translateY(-60%);
   }
-
-  // .containerDots {
-  //   display: flex;
-  //   position: absolute;
-  //   bottom: 60px;
-  //   left: 50%;
-  //   transform: translateX(-50%);
-  //   cursor: pointer;
-
-  //   .dot {
-  //     flex: 1 0 1px;
-  //     width: 80px;
-  //     height: 3px;
-  //     padding: 0px;
-  //     border: 1px solid #dddddd;
-  //     border-radius: 0;
-  //     opacity: 10;
-  //     background: #dddddd;
-  //   }
-
-  //   .dot.active {
-  //     position: relative;
-  //     bottom: 1px;
-  //     height: 5px;
-  //     background: rgb(68, 68, 68);
-  //   }
-  // }
 }

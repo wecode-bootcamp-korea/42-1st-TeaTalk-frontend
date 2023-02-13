@@ -2,7 +2,7 @@
   {
     "id": 1,
     "title": "프리미엄 티 컬렉션",
-    "img": "/public/images/main/item.PNG",
+    "img": "../images/main/item.PNG",
     "price": "30000",
     "discount": "20"
   }

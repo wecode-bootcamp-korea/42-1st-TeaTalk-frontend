@@ -1,20 +1,17 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Nav.scss';
-import '../../styles/common.scss';
 import NavModal from './NavModal/NavModal';
 import Navlogin from './NavModal/Navlogin';
 import Navinfo from './NavModal/Navinfo';
 import cart from './icon/cart.svg';
 import info from './icon/info.svg';
-
-// import { NAVBAR_LIST } from './Navlist';
+import './Nav.scss';
+import '../../styles/common.scss';
 
 function Nav() {
-  let [navlogin, setNavlogin] = useState(false);
-  let [navinfo, setNavinfo] = useState(false);
-  const [currentMenuId, setCurrentMenuId] = useState();
+  const [navlogin, setNavlogin] = useState(false);
+  const [navinfo, setNavinfo] = useState(false);
+  const [currentMenuId, setCurrentMenuId] = useState('');
   return (
     <div className="nav">
       <div className="startHeader">

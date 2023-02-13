@@ -22,8 +22,6 @@ function Productlist() {
           return <Product key={i} product={product} />;
         })}
       </div>
-      <button className="more-btn"> 더 보기 </button>
-      {/* <div className="main-weekly-item"></div> */}
     </div>
   );
 }

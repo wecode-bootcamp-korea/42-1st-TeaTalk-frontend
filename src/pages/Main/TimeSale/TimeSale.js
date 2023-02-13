@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
-// import { useNavigate } from 'react-router-dom';
-// import '../../../../styles/common.scss';
 import './TimeSale.scss';
 
 import time from './Icon/time.svg';
 
 export default function TimeSale({ timesale }) {
-  // console.log({ timeSale });
   const [hour, setHour] = useState(23 - new Date().getHours());
   const [minute, setMinute] = useState(59 - new Date().getMinutes());
   const [second, setSecond] = useState(59 - new Date().getSeconds());
@@ -36,22 +33,28 @@ export default function TimeSale({ timesale }) {
         </div>
       </div>
 
-      <div className="timeSaleItem">{timesale.title}</div>
-      <div className="timeSaleFooter">
-        <div className="timeSaleDiscount">{timesale.discount}%</div>
-        <div className="timeSalePrice">
-          {Number(timesale.price).toLocaleString()}
-        </div>
-        <div className="timeSalseEventPrice">
-          {(
-            timesale.price *
-            ((100 - timesale.discount) / 100)
-          ).toLocaleString()}
-          원
+      <div className="timeSaleImg">
+        <img src={timesale.img} />
+      </div>
+      {/* <div className="timeSaleText"> */}
+
+      <div className="timeSaleText">
+        <div className="timeSaleItem">{timesale.title}</div>
+        <div className="timeSaleFooter">
+          <div className="timeSaleDiscount">{timesale.discount}%</div>
+          <div className="timeSalePrice">
+            {Number(timesale.price).toLocaleString()}
+          </div>
+          <div className="timeSalseEventPrice">
+            {(
+              timesale.price *
+              ((100 - timesale.discount) / 100)
+            ).toLocaleString()}
+            원
+          </div>
         </div>
       </div>
-      {/* <img className="timeSaleImg" scr={timesale.img} art={timesale.title} /> */}
-      {/* <img className="timeSaleImg" src="/public/images/main/item2.jpg" /> */}
+      {/* </div> */}
     </div>
   );
 }

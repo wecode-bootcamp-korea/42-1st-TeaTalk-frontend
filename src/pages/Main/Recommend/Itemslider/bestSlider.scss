@@ -3,31 +3,28 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  // border: solid 1px black;
 
   .sliderBox {
     display: flex;
     align-items: center;
-    // border: solid 1px black;
+    height: 100%;
+
     .carouselWrapper {
       width: 1060px;
       overflow: hidden;
-      // border: solid 1px black;
+
       .itemCtr {
         display: flex;
         transition: transform ease 1.5s;
 
-        .item {
+        .itemContent {
           display: flex;
           flex-shrink: 0;
           align-items: center;
           justify-content: center;
           width: 200px;
-          height: 200px;
           margin-right: 6px;
           margin-left: 6px;
-          background-color: rgb(84, 139, 112);
-          color: white;
         }
       }
     }
@@ -35,7 +32,6 @@
       width: 40px;
       height: 40px;
       border: none;
-
       opacity: 0.6;
       background-color: none;
     }

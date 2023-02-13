@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './Slider.scss';
 import BtnSlider from './SlideButton';
+import './Slider.scss';
 
 function Slider() {
   const [slideIndex, setSlideIndex] = useState(1);
@@ -20,10 +20,6 @@ function Slider() {
       setSlideIndex(DATA_SLIDER.length);
     }
   };
-
-  // const moveDot = index => {
-  //   setSlideIndex(index);
-  // };
 
   return (
     <div className="containerSlider">

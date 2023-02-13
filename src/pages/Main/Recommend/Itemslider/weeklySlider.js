@@ -1,14 +1,7 @@
 import React, { useState } from 'react';
-// import ReactDOM from "react-dom";
-
 import './weeklySlider.scss';
 
 export default function WeeklySlider() {
-  // neeed the left button
-  // right button
-  // squares
-  // overlay and items and contents
-  // pagination
   const items = [0, 1, 2, 3, 4, 5, 6, 7, 8];
   const [index, setIndex] = useState(0);
   const [transform, setTransform] = useState(0);
@@ -45,14 +38,6 @@ export default function WeeklySlider() {
           {'>'}
         </button>
       </div>
-      {/* <div className="pagination-ctr">
-        {[0, 1, 2, 3, 4, 5].map((page, idx) => (
-          <div className={`page ${idx === index / 5 ? 'selected' : ''}`} />
-        ))}
-      </div> */}
     </div>
   );
 }
-
-// const rootElement = document.getElementById("root");
-// ReactDOM.render(<App />, rootElement);

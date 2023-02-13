@@ -3,16 +3,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  // border: solid 1px black;
 
   .sliderBox {
     display: flex;
     align-items: center;
-    // border: solid 1px black;
+
     .carouselWrapper {
       width: 1060px;
       overflow: hidden;
-      // border: solid 1px black;
+
       .itemCtr {
         display: flex;
         transition: transform ease 1.5s;
@@ -35,7 +34,6 @@
       width: 40px;
       height: 40px;
       border: none;
-      // border-radius: 50%;
       opacity: 0.6;
       background-color: none;
     }
