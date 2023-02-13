@@ -1,8 +1,6 @@
-import './Productlist';
 import { useState, useEffect } from 'react';
+import Product from '../../components/Product/Product';
 import './Productlist.scss';
-import '../../styles/common.scss';
-import Product from '../Product/Product';
 
 function Productlist() {
   const [itemList, setItemList] = useState([]);
@@ -14,15 +12,15 @@ function Productlist() {
   }, []);
 
   return (
-    <div className="main-bg">
-      <div className="main-recommend" />
-      <div className="main-best-item">
+    <>
+      <div className="background" />
+      <div className="itemContainer">
         {itemList.map((result, i) => {
           const product = itemList[i];
           return <Product key={i} product={product} />;
         })}
       </div>
-    </div>
+    </>
   );
 }
 

@@ -69,5 +69,16 @@
     "category": "제품",
     "subcategory": "티제품",
     "discountprice": "28,000"
+  },
+
+  {
+    "id": 8,
+    "title": "먹다 남긴 차",
+    "img": "images/main/item.PNG",
+    "img2": "images/main/item2.jpg",
+    "price": "20,000",
+    "category": "제품",
+    "subcategory": "티제품",
+    "discountprice": "28,000"
   }
 ]

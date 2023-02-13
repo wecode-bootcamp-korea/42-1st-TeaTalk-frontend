@@ -1,58 +1,23 @@
-a {
-  color: black;
-  text-decoration: none;
-}
-
-.main-bg {
-  height: 600px;
-  margin-bottom: 50px;
-  background-image: url('/images/tea.jpg');
+.background {
+  height: 400px;
+  margin-top: 80px;
+  background-color: antiquewhite;
   background-position: center;
   background-size: cover;
 }
 
-.main-recommend {
-  /* width: 100%;
-  max-width: 1400px; */
-  height: 600px;
-  /* display: flex; */
-  /* align-items: center; */
-  // border: solid 1px black;
-}
-
-.recommend-btn {
-  display: flex;
-  align-items: center;
-  height: 30px;
-  margin-left: 30px;
-  padding: 15px;
-  border: none;
-  border-radius: 15px;
-}
-
-.main-best-item {
-  display: flex;
+.itemContainer {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
   width: 1100px;
   max-width: 1100px;
   margin: 80px auto;
+  margin-bottom: 20px;
+  padding: 10px;
   overflow: hidden;
-  border: solid 1px black;
-}
+  column-gap: 10px;
 
-.item-container {
-  width: 220px;
-
-  border: solid 1px black;
-}
-
-.item-container img {
-  display: block;
-  /* border: solid 1px black; */
-  /* width: 100%; */
-  margin: auto;
-}
-
-.item-container p {
-  margin-top: 10px;
-  margin-left: 10px;
+  .itemBox {
+    width: 200px;
+  }
 }

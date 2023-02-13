@@ -4,9 +4,12 @@ import './TimeSale.scss';
 import time from './Icon/time.svg';
 
 export default function TimeSale({ timesale }) {
-  const [hour, setHour] = useState(23 - new Date().getHours());
-  const [minute, setMinute] = useState(59 - new Date().getMinutes());
-  const [second, setSecond] = useState(59 - new Date().getSeconds());
+  const DAY_HOUR = 24;
+  const DAY_MINUTE = 59;
+  const DAY_SECOND = 59;
+  const [hour, setHour] = useState(DAY_HOUR - new Date().getHours());
+  const [minute, setMinute] = useState(DAY_MINUTE - new Date().getMinutes());
+  const [second, setSecond] = useState(DAY_SECOND - new Date().getSeconds());
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -36,7 +39,6 @@ export default function TimeSale({ timesale }) {
       <div className="timeSaleImg">
         <img src={timesale.img} />
       </div>
-      {/* <div className="timeSaleText"> */}
 
       <div className="timeSaleText">
         <div className="timeSaleItem">{timesale.title}</div>
@@ -54,7 +56,6 @@ export default function TimeSale({ timesale }) {
           </div>
         </div>
       </div>
-      {/* </div> */}
     </div>
   );
 }

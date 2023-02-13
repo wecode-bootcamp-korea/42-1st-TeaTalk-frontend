@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Product from '../../../Product/Product';
+import Product from '../../../../components/Product/Product';
 import './bestSlider.scss';
 
 export default function BestSlider() {
