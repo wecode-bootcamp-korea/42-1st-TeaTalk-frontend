@@ -4,17 +4,17 @@ import Detailmodal from './Detailmodal';
 
 function Terms() {
   // 모달창 노출 여부 state
-  const [modalOpen, setModalOpen] = useState(false);
-  const [checkAll, setCheckAll] = useState(false);
-  const [firstCheckBox, setFirstCheckBox] = useState(false);
-  const [secondCheckBox, setSecondCheckBox] = useState(false);
-  const [thirdCheckBox, setThirdCheckBox] = useState(false);
-  const [fourthCheckBox, setFourthCheckBox] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isCheckAll, setIsCheckAll] = useState(false);
+  const [isFirstCheckBox, setIsFirstCheckBox] = useState(false);
+  const [isSecondCheckBox, setIsSecondCheckBox] = useState(false);
+  const [isThirdCheckBox, setIsThirdCheckBox] = useState(false);
+  const [isFourthCheckBox, setIsFourthCheckBox] = useState(false);
 
   // 모달창 노출
   const showModal = () => {
-    if (modalOpen === true) {
-      setModalOpen(true);
+    if (isModalOpen === true) {
+      setIsModalOpen(true);
     }
   };
 
@@ -24,70 +24,70 @@ function Terms() {
   // };
 
   const allBtnEvent = () => {
-    if (checkAll === false) {
-      setCheckAll(true);
-      setFirstCheckBox(true);
-      setSecondCheckBox(true);
-      setThirdCheckBox(true);
-      setFourthCheckBox(true);
+    if (isCheckAll === false) {
+      setIsCheckAll(true);
+      setIsFirstCheckBox(true);
+      setIsSecondCheckBox(true);
+      setIsThirdCheckBox(true);
+      setIsFourthCheckBox(true);
     } else {
-      setCheckAll(false);
-      setFirstCheckBox(false);
-      setSecondCheckBox(false);
-      setThirdCheckBox(false);
-      setFourthCheckBox(false);
+      setIsCheckAll(false);
+      setIsFirstCheckBox(false);
+      setIsSecondCheckBox(false);
+      setIsThirdCheckBox(false);
+      setIsFourthCheckBox(false);
     }
   };
 
   const firstBoxEvent = () => {
-    if (firstCheckBox === false) {
-      setFirstCheckBox(true);
+    if (isFirstCheckBox === false) {
+      setIsFirstCheckBox(true);
     } else {
-      setFirstCheckBox(false);
+      setIsFirstCheckBox(false);
     }
   };
 
   const SecondBoxEvent = () => {
-    if (secondCheckBox === false) {
-      setSecondCheckBox(true);
+    if (isSecondCheckBox === false) {
+      setIsSecondCheckBox(true);
     } else {
-      setSecondCheckBox(false);
+      setIsSecondCheckBox(false);
     }
   };
 
   const thirdBoxEvent = () => {
-    if (thirdCheckBox === false) {
-      setThirdCheckBox(true);
+    if (isThirdCheckBox === false) {
+      setIsThirdCheckBox(true);
     } else {
-      setThirdCheckBox(false);
+      setIsThirdCheckBox(false);
     }
   };
 
   const fourthBoxEvent = () => {
-    if (fourthCheckBox === false) {
-      setFourthCheckBox(true);
+    if (isFourthCheckBox === false) {
+      setIsFourthCheckBox(true);
     } else {
-      setFourthCheckBox(false);
+      setIsFourthCheckBox(false);
     }
   };
 
   useEffect(() => {
     if (
-      firstCheckBox === true &&
-      secondCheckBox === true &&
-      thirdCheckBox === true &&
-      fourthCheckBox === true
+      isFirstCheckBox === true &&
+      isSecondCheckBox === true &&
+      isThirdCheckBox === true &&
+      isFourthCheckBox === true
     ) {
-      setCheckAll(true);
+      setIsCheckAll(true);
     } else {
-      setCheckAll(false);
+      setIsCheckAll(false);
     }
-  }, [firstCheckBox, secondCheckBox, thirdCheckBox, fourthCheckBox]);
+  }, [isFirstCheckBox, isSecondCheckBox, isThirdCheckBox, isFourthCheckBox]);
 
   return (
     <div className="termsCheckList">
       <div className="allTermsAgree">
-        <input type="checkbox" checked={checkAll} onClick={allBtnEvent} />
+        <input type="checkbox" checked={isCheckAll} onChange={allBtnEvent} />
         모든 약관 및 정보 수신 동의
       </div>
       <li>회원 약관</li>
@@ -95,25 +95,27 @@ function Terms() {
         <div className="firstCheckbox">
           <input
             type="checkbox"
-            checked={firstCheckBox}
-            onClick={firstBoxEvent}
+            checked={isFirstCheckBox}
+            onChange={firstBoxEvent}
           />
           <span>[필수] 개인정보 제3자 제공 동의</span>
           <span
             className="more"
             onClick={() => {
-              setModalOpen(true);
+              setIsModalOpen(true);
             }}
           >
             더보기
           </span>
-          {modalOpen === true ? <Detailmodal /> : null}
+          {isModalOpen === true ? (
+            <Detailmodal setIsModalOpen={setIsModalOpen} />
+          ) : null}
         </div>
         <div>
           <input
             type="checkbox"
-            checked={secondCheckBox}
-            onClick={SecondBoxEvent}
+            checked={isSecondCheckBox}
+            onChange={SecondBoxEvent}
           />
           <span>[필수]TeaTalk 서비스 이용약관</span>
           <span className="more">더보기</span>
@@ -121,8 +123,8 @@ function Terms() {
         <div>
           <input
             type="checkbox"
-            checked={thirdCheckBox}
-            onClick={thirdBoxEvent}
+            checked={isThirdCheckBox}
+            onChange={thirdBoxEvent}
           />
           <span>[필수]개인정보 수집동의</span>
           <span className="more">더보기</span>
@@ -130,8 +132,8 @@ function Terms() {
         <div>
           <input
             type="checkbox"
-            checked={fourthCheckBox}
-            onClick={fourthBoxEvent}
+            checked={isFourthCheckBox}
+            onChange={fourthBoxEvent}
           />
           <span>[선택]개인정보 수집/이용 동의</span>
           <span className="more">더보기</span>
@@ -142,46 +144,3 @@ function Terms() {
 }
 
 export default Terms;
-
-{
-  /* <div className="checkboxWrap">
-  <div className="termsCheckList">
-    <input type="checkbox" checked={checkAll} onChange={allBtnEvent} />
-    <span>모든 약관 및 정보 수신 동의</span>
-    <img
-      className="modalBtn"
-      onClick={showModal}
-      src="images/signup/more.png"
-      alt="more"
-    />
-    <br />
-    <span>모달창입니다.</span>
-    <button onClick={closeModal}>X</button>
-    <div>회원 약관</div>
-    <div>
-      <input checked={checkBox} type="checkbox" />
-      <span>[필수] 개인정보 제3자 제공 동의</span>
-    </div>
-    <br />
-    <div>오설록 회원약관</div>
-    <div>
-      <input checked={checkBox} type="checkbox" />
-      <span>[필수]TeaTalk 서비스 이용약관</span>
-    </div>
-    <div>
-      <input checked={checkBox} type="checkbox" />
-      <span>[필수]개인정보 수집동의</span>
-    </div>
-    <div>
-      <input type="checkbox" />
-      <span>[선택]개인정보 수집/이용 동의</span>
-    </div>
-  </div>
-</div>;
-
-{
-  modalOpen === true ? (
-    <Modal setModalOpen={setModalOpen} checkBox={setCheckAll} />
-  ) : null;
-} */
-}

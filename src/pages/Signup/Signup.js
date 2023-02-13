@@ -12,9 +12,7 @@ function Signup() {
   const [birthday, setBirthday] = useState('');
   const [name, setName] = useState('');
   const [error, setError] = useState('');
-  const [male, setMale] = useState(false);
-  const [female, setFemale] = useState(false);
-  const [toggle, setToggle] = useState(null);
+  const [toggle, setToggle] = useState(true);
   const navigate = useNavigate();
 
   const getId = e => {
@@ -29,7 +27,7 @@ function Signup() {
   const getEmail = e => {
     setEmail(e.target.value);
 
-    if (regex.test(email) === false) {
+    if (regexEmail.test(email) === false) {
       setError('이메일 형식이 올바르지 않습니다.');
     } else {
       setError('형식에 맞는 이메일주소 입니다.');
@@ -47,19 +45,13 @@ function Signup() {
     setBirthday(e.target.value);
   };
 
-  const getMale = e => {
-    setMale(e.target.value);
-    setToggle(!toggle);
-  };
-
-  const getFemale = e => {
-    setFemale(e.target.value);
+  const getGender = e => {
     setToggle(!toggle);
   };
 
   const goToMain = () => {
     //navigate('/main');
-    fetch('http://10.58.52.150:8000/users/signup', {
+    fetch('http://10.58.52.197:8000/users/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -71,16 +63,15 @@ function Signup() {
         name: name,
         phoneNum: phoneNumber,
         birthdate: birthday,
-        gender: '',
+        gender: toggle,
       }),
     })
       .then(response => response.json())
       .then(data => {
         console.log(data);
-        navigate('/main');
+        navigate('/');
       });
   };
-
   const waringPw = () => {
     if (pw === checkPw && checkPw.length > 0 && pw.length > 0) {
       return '비밀번호 일치';
@@ -91,36 +82,21 @@ function Signup() {
     }
   };
 
-  // const isMaleCheckbox = () => {
-  //   if (male === true) {
-  //     female(false);
-  //   } else {
-  //     female(true);
-  //   }
-  // };
-
-  // const isFemaleCheckbox = () => {
-  //   if (female === true) {
-  //     male(false);
-  //   } else {
-  //     male(true);
-  //   }
-  // };
-
-  const isDisabledJoin =
-    (id.length > 0 &&
-      pw.length > 0 &&
-      email.length > 0 &&
-      phoneNumber.length > 0 &&
-      name.length > 0 &&
-      male === true) ||
-    female === true;
-
-  const regex =
+  const regexEmail =
     /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 
+  const regexPw = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,20})/i;
+
+  const isDisabledJoin =
+    id.length > 0 &&
+    regexPw.test(pw) === true &&
+    regexEmail.test(email) === true &&
+    phoneNumber.length > 0 &&
+    name.length > 0 &&
+    (toggle === true || toggle === false);
+
   return (
-    <div>
+    <div className="signup">
       <div className="header">아이디 등록</div>
       <hr />
       <div className="container">
@@ -157,7 +133,11 @@ function Signup() {
             placeholder="이메일"
             onChange={getEmail}
           />
-          <p className={regex.test(email) === false ? 'eRedMsg' : 'eGreenMsg'}>
+          <p
+            className={
+              regexEmail.test(email) === false ? 'eRedMsg' : 'eGreenMsg'
+            }
+          >
             {error}
           </p>
           <input
@@ -178,23 +158,9 @@ function Signup() {
         <div className="gender">
           <span>성별 : </span>
           <span>남</span>
-          <input
-            type="checkbox"
-            onChange={getMale}
-            checked={!toggle}
-            // disabled={female === true ? true : female}
-            //onClick={isMaleCheckbox}
-            //disabled={isMaleCheckbox}
-          />
+          <input type="checkbox" onChange={getGender} checked={toggle} />
           <span>여</span>
-          <input
-            type="checkbox"
-            onChange={getFemale}
-            checked={toggle}
-            // disabled={male === true ? true : male}
-            //onClick={isFemaleCheckbox}
-            //disabled={isFemaleCheckbox}
-          />
+          <input type="checkbox" onChange={getGender} checked={!toggle} />
         </div>
       </div>
       <Terms />
