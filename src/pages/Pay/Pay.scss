@@ -205,6 +205,10 @@
         }
       }
       .adressContainer {
+        display: flex;
+        flex-direction: column;
+        max-width: 860px;
+        margin-bottom: 20px;
         p {
           padding-top: 14px;
           padding-right: 20px;
@@ -213,21 +217,86 @@
         .postNum {
           display: flex;
           width: 780px;
-          border: solid red;
+          margin-bottom: 20px;
           input {
+            width: 30%;
+            height: 40px;
+            margin-left: 10px;
           }
           button {
-            width: 100%;
+            width: 15%;
             height: 40px;
+            margin-left: 10px;
           }
         }
-        div {
+        .reciverAdress {
           display: flex;
+          flex-direction: column;
           width: 780px;
+          margin-left: 59px;
           input {
+            width: 100%;
+            height: 40px;
+            margin-bottom: 20px;
           }
         }
       }
+      .orderRequest {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 780px;
+        height: 100px;
+        margin-left: 58px;
+        padding-top: 30px;
+        padding-right: 30px;
+        padding-bottom: 30px;
+        padding-left: 30px;
+        background-color: #ededed;
+        line-height: 1.4;
+        .selectRequest {
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+    .agreement {
+      padding-top: 20px;
+      padding-right: 20px;
+      padding-bottom: 20px;
+      padding-left: 20px;
+      border-top: 1px solid #333;
+
+      .agreementWarp {
+        border: 1px solid #b8b8b8;
+        border-radius: 5px;
+        .agreementCheckbox {
+          padding: 20px;
+          border-bottom: 1px solid #b8b8b8;
+        }
+        .agreementInfo {
+          padding: 20px;
+          color: #afafaf;
+          line-height: 2;
+          li {
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+    .aside {
+      position: absolute;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 280px;
+      padding: 20px 20px 0 20px;
+      overflow: hidden;
+      border: 1px solid #333;
+      border-radius: 8px;
+      background-color: #fff;
+      margin-right: 100px;
+      margin-top: 120px;
     }
   }
 }
