@@ -1,0 +1,143 @@
+// @import '../../../styles/variables';
+
+.containerSlider {
+  position: relative;
+  height: 640px;
+  overflow: hidden;
+
+  @media screen and (max-width: 800px) {
+    .containerSlider {
+      margin: 200px 10px 0;
+    }
+  }
+
+  .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: opacity ease-in-out 0.4s;
+    opacity: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .alignBox {
+      position: absolute;
+      top: 50%;
+      left: 45%;
+      width: 50%;
+      max-width: 1320px;
+      height: 50%;
+      padding: 0 10px;
+      transform: translateX(-50%);
+      // border: solid 1px black;
+
+      .textBox {
+        top: 50%;
+        bottom: auto;
+        left: 60px;
+        padding-top: 50px;
+        transform: translateY(-50%);
+
+        .banTitle {
+          font-size: 28px;
+          letter-spacing: -0.04em;
+          line-height: 1.33;
+        }
+
+        .onepoint {
+          margin-top: 10px;
+          font-size: 16px;
+        }
+
+        .date {
+          margin-top: 12px;
+          font-size: 16px;
+        }
+      }
+      .btnEvent {
+        position: absolute;
+        z-index: 2;
+        bottom: 50px;
+        width: 110px;
+        height: 32px;
+        transition: 0.2s ease-in-out;
+        border: 1px solid #555;
+        border-radius: 4px;
+        background-color: transparent;
+        color: #333;
+        font-size: 13px;
+        line-height: 32px;
+        cursor: pointer;
+        &:hover.btnEvent {
+          background-color: #555;
+          color: rgb(255, 255, 255);
+        }
+      }
+    }
+  }
+
+  .activeAnim {
+    opacity: 1;
+  }
+
+  .btnSlide {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border: 1px solid transparent;
+    // border: solid 3px black;
+    background: transparent;
+    cursor: pointer;
+
+    img {
+      width: 25px;
+      height: 25px;
+      pointer-events: none;
+    }
+  }
+
+  .prev {
+    top: 50%;
+    left: 50px;
+    transform: translateY(-60%);
+  }
+  .next {
+    top: 50%;
+    right: 50px;
+    transform: translateY(-60%);
+  }
+
+  // .containerDots {
+  //   display: flex;
+  //   position: absolute;
+  //   bottom: 60px;
+  //   left: 50%;
+  //   transform: translateX(-50%);
+  //   cursor: pointer;
+
+  //   .dot {
+  //     flex: 1 0 1px;
+  //     width: 80px;
+  //     height: 3px;
+  //     padding: 0px;
+  //     border: 1px solid #dddddd;
+  //     border-radius: 0;
+  //     opacity: 10;
+  //     background: #dddddd;
+  //   }
+
+  //   .dot.active {
+  //     position: relative;
+  //     bottom: 1px;
+  //     height: 5px;
+  //     background: rgb(68, 68, 68);
+  //   }
+  // }
+}
