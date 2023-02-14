@@ -9,6 +9,7 @@ function Pay() {
   const [receiverPhoneNum, setReceiverPhoneNum] = useState('');
   const [selected, setSelected] = useState('');
   const [request, setrequest] = useState('');
+  const [isAgree, setIsAgree] = useState(false);
 
   const getReceiverName = e => {
     setReceiver(e.target.value);
@@ -32,6 +33,12 @@ function Pay() {
   const onChangeRequest = e => {
     setrequest(e.target.value);
   };
+
+  const getAgree = e => {
+    setIsAgree(e.target.value);
+  };
+
+  //console.log(isAgree);
 
   return (
     <div className="pay">
@@ -149,13 +156,21 @@ function Pay() {
               {request === 'self' && <input type="text" />}
             </div>
           </section>
-          <section>
-            <Orderproduct />
+          <section className="orderProductList">
+            <div className="orderWrap">
+              <div className="title">
+                <p>주문상품</p>
+                <p>총 건</p>
+              </div>
+              <div className="orderProductWrap">
+                <Orderproduct />
+              </div>
+            </div>
           </section>
           <section className="agreement">
             <div className="agreementWarp">
               <div className="agreementCheckbox">
-                <input type="checkbox" />
+                <input type="checkbox" checked={isAgree} onChange={getAgree} />
                 <span>
                   위 상품의 판매조건을 명확히 확인하였으며, 구매 진행에 동의
                   합니다.
@@ -188,21 +203,31 @@ function Pay() {
             </div>
           </section>
           <aside className="aside">
-            <div>
-              <div className="priceInfo">
+            <div className="totalPrice">
+              <div className="productPrice">
                 <p>총 상품 금액</p>
                 <p>50,000원</p>
               </div>
-              <div>
+              <div className="deliveryFee">
                 <p>배송비</p>
                 <p>0원</p>
               </div>
-              <div>
+              <div className="mileage">
+                <p>보유 마일리지</p>
+                <p>0원</p>
+              </div>
+              <div className="mileageBalance">
+                <p>결제후 마일리지</p>
+                <p>0원</p>
+              </div>
+              <div className="totalPrice">
                 <p>최종 결제 금액</p>
                 <p>50,000원</p>
               </div>
             </div>
-            <button type="button">결제하기</button>
+            <div className="payBtn">
+              <button type="button">결제하기</button>
+            </div>
           </aside>
         </div>
       </div>
