@@ -20,11 +20,6 @@
     .modalFirstSpace {
       width: 25%;
     }
-    .modalMenu {
-      display: flex;
-      flex: 1.8;
-      line-height: 3;
-    }
 
     .modalImgSpace {
       @include flex($justify: center, $align: center);
@@ -42,18 +37,5 @@
     .modalLastSpace {
       flex: 1;
     }
-  }
-}
-.modalWrap {
-  display: flex;
-  position: fixed;
-  padding-left: 40px;
-  font-size: 18px;
-}
-
-.navbarDropdown {
-  width: 150px;
-  ul:first-child {
-    font-weight: bold;
   }
 }

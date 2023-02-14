@@ -1,31 +1,17 @@
-import { NAVBAR_LIST } from '../Nav';
+import React from 'react';
+import ModalMenuList from './ModalMenuList';
 import './NavModal.scss';
 
 function NavModal({ currentMenuId, setCurrentMenuId }) {
+  const NavOnMouseLeave = () => {
+    setCurrentMenuId();
+  };
+
   return (
     <div className="navModal">
-      <div className="modalinner" onMouseLeave={() => setCurrentMenuId()}>
+      <div className="modalinner" onMouseLeave={NavOnMouseLeave}>
         <div className="modalFirstSpace" />
-        <div className="modalMenu">
-          {NAVBAR_LIST.map(({ id, category }) => {
-            return (
-              <div className="modalWrap" key={id}>
-                {id === currentMenuId &&
-                  category.map(({ id, list }) => (
-                    <div className="navbarDropdown" key={id}>
-                      {list.map(list => {
-                        return (
-                          <ul>
-                            <li>{list}</li>
-                          </ul>
-                        );
-                      })}
-                    </div>
-                  ))}
-              </div>
-            );
-          })}
-        </div>
+        <ModalMenuList currentMenuId={currentMenuId} />
         <div className="modalImgSpace">
           <div className="modalImg" />
         </div>

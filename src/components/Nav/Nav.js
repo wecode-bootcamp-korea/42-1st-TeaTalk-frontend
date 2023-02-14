@@ -11,6 +11,26 @@ function Nav() {
   const [navlogin, setNavlogin] = useState(false);
   const [navinfo, setNavinfo] = useState(false);
   const [currentMenuId, setCurrentMenuId] = useState('');
+
+  const NavOnMouseEnter = () => {
+    setCurrentMenuId(NAVBAR_LIST[0].id);
+  };
+  const NavOnMouseLeave = () => {
+    setCurrentMenuId();
+  };
+  const infoOnMouseLeave = () => {
+    setNavinfo(false);
+  };
+  const infoOnMouseEnter = () => {
+    setNavinfo(true);
+  };
+  const loginOnMouseLeave = () => {
+    setNavlogin(false);
+  };
+  const loginOnMouseOver = () => {
+    setNavlogin(true);
+  };
+
   return (
     <div className="nav">
       <div className="startHeader">
@@ -25,17 +45,17 @@ function Nav() {
             <div
               className="navMenuWrap"
               key={id}
-              onMouseEnter={() => setCurrentMenuId(id)}
-              onMouseLeave={() => setCurrentMenuId()}
+              onMouseEnter={NavOnMouseEnter}
+              onMouseLeave={NavOnMouseLeave}
             >
               <div className="navMenu">
                 <div className="navMenuTitle"> {title}</div>
-                {currentMenuId === id ? (
+                {currentMenuId === id && (
                   <NavModal
                     setCurrentMenuId={setCurrentMenuId}
                     currentMenuId={currentMenuId}
                   />
-                ) : null}
+                )}
               </div>
             </div>
           );
@@ -47,18 +67,18 @@ function Nav() {
             <img className="cartImg" src={cart} alt="cart" />
           </Link>
         </div>
-        <div className="infoWrap" onMouseLeave={() => setNavinfo(false)}>
+        <div className="infoWrap" onMouseLeave={infoOnMouseLeave}>
           <img
             className="infoImg"
             src={info}
             alt="info"
-            onMouseOver={() => setNavinfo(true)}
+            onMouseOver={infoOnMouseEnter}
           />
           {navinfo === true ? <Navinfo /> : null}
         </div>
       </div>
-      <div className="endHeader" onMouseLeave={() => setNavlogin(false)}>
-        <div className="endHeaderLogin" onMouseOver={() => setNavlogin(true)}>
+      <div className="endHeader" onMouseLeave={loginOnMouseLeave}>
+        <div className="endHeaderLogin" onMouseOver={loginOnMouseOver}>
           로그인
           {navlogin === true ? <Navlogin /> : null}
         </div>
@@ -66,6 +86,8 @@ function Nav() {
     </div>
   );
 }
+
+export default Nav;
 
 export const NAVBAR_LIST = [
   {
@@ -103,5 +125,3 @@ export const NAVBAR_LIST = [
     ],
   },
 ];
-
-export default Nav;

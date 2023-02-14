@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import time from './Icon/time.svg';
+import time from './icons/time.svg';
 import './TimeSale.scss';
 
+const DAY_HOUR = 23;
+const DAY_MINUTE = 59;
+const DAY_SECOND = 59;
+
 export default function TimeSale({ timesale }) {
-  const DAY_HOUR = 24;
-  const DAY_MINUTE = 59;
-  const DAY_SECOND = 59;
   const [hour, setHour] = useState(DAY_HOUR - new Date().getHours());
   const [minute, setMinute] = useState(DAY_MINUTE - new Date().getMinutes());
   const [second, setSecond] = useState(DAY_SECOND - new Date().getSeconds());

@@ -3,10 +3,7 @@ import './Navinfo.scss';
 
 function Navinfo() {
   return (
-    <div
-      className="navInfo
-    "
-    >
+    <div className="navInfo">
       <ul>
         <Link to="/Login">
           <li>고객센터</li>

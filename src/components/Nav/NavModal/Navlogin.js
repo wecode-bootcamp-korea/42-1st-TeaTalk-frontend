@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import './Navlogin.scss';
 
-function Navlogin({ setNavlogin }) {
+function Navlogin() {
   return (
     <div className="navLogin">
       <ul>

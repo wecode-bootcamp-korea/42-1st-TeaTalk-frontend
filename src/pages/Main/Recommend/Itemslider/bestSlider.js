@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Product from '../../../../components/Product/Product';
 import './bestSlider.scss';
 
+const IMG_WIDTH = 212;
+
 export default function BestSlider() {
-  const IMG_WIDTH = 212;
   const [index, setIndex] = useState(0);
   const [transform, setTransform] = useState(0);
   const [itemList, setItemList] = useState([]);
