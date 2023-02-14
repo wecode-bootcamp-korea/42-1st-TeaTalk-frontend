@@ -1,0 +1,32 @@
+@import '../../styles/variables';
+
+.product {
+  @include flex($justify: center, $align: center);
+  flex-direction: column;
+  width: 80%;
+  height: 100%;
+  margin: auto;
+  border: solid 1px black;
+  .productImgBox {
+    width: 100%;
+    text-align: center;
+
+    .productImg {
+      width: 80%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  .productInfo {
+    width: 90%;
+    font-size: 20px;
+
+    .productTitle {
+      margin: 20px;
+    }
+    .productPrice {
+      margin: 20px;
+      font-weight: bold;
+    }
+  }
+}

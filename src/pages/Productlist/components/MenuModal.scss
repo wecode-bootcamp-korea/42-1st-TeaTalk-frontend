@@ -1,0 +1,40 @@
+// @import '../../../styles/variables';
+
+.MenuModal {
+  display: block;
+  position: fixed;
+  z-index: 99;
+  // border: solid 2px black;
+  // top: 80px;
+  // right: 0;
+  // bottom: 0;
+  // left: 0;
+
+  .MenuModalinner {
+    display: flex;
+    width: 100%;
+    // height: 400px;
+    // padding: 10px;
+    // background-color: white;
+    // border: solid 2px black;
+
+    .MenuModalMenu {
+      display: flex;
+      flex: 1.8;
+      line-height: 3;
+    }
+  }
+}
+.MenuModalWrap {
+  display: flex;
+  position: fixed;
+  padding-left: 40px;
+  font-size: 18px;
+}
+
+.MenuavbarDropdown {
+  width: 150px;
+  ul:first-child {
+    font-weight: bold;
+  }
+}
