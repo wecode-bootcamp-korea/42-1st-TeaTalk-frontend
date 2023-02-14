@@ -15,9 +15,11 @@ export default function Searchadress({ parentFunction }) {
     return adressinfo.adress === adress;
   });
 
-  const childFunction = parentFunction => {
-    //console.log(parentFunction);
+  const childFunction = x => {
+    console.log(x);
   };
+
+  //parentFunction();
 
   return (
     <>

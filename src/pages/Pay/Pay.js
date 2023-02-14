@@ -1,6 +1,5 @@
 import { useState } from 'react';
-//import Orderproduct from './Orderproduct';
-import Searchadress from './Searchadress';
+import Orderproduct from './Orderproduct';
 import './Pay.scss';
 
 function Pay() {
@@ -10,7 +9,6 @@ function Pay() {
   const [receiverPhoneNum, setReceiverPhoneNum] = useState('');
   const [selected, setSelected] = useState('');
   const [request, setrequest] = useState('');
-  const [isModal, setIsModal] = useState(false);
 
   const getReceiverName = e => {
     setReceiver(e.target.value);
@@ -33,10 +31,6 @@ function Pay() {
 
   const onChangeRequest = e => {
     setrequest(e.target.value);
-  };
-
-  const parentFunction = x => {
-    console.log(x);
   };
 
   return (
@@ -135,22 +129,8 @@ function Pay() {
               </div>
             </div>
             <div className="adressContainer">
+              <p>주소</p>
               <div className="postNum">
-                <p>주소</p>
-                <input type="text" readOnly="readonly" />
-                <button
-                  onClick={() => {
-                    setIsModal(!isModal);
-                  }}
-                >
-                  우편번호 찾기
-                </button>
-              </div>
-              {isModal === true ? (
-                <Searchadress parentFunction={parentFunction} />
-              ) : null}
-              <div className="reciverAdress">
-                <input type="text" />
                 <input type="text" placeholder="상세주소 입력" />
               </div>
             </div>
@@ -169,7 +149,9 @@ function Pay() {
               {request === 'self' && <input type="text" />}
             </div>
           </section>
-          <section>{/* <Orderproduct /> */}</section>
+          <section>
+            <Orderproduct />
+          </section>
           <section className="agreement">
             <div className="agreementWarp">
               <div className="agreementCheckbox">
