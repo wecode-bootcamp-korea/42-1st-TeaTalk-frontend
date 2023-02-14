@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './TimeSale.scss';
-
 import time from './Icon/time.svg';
+import './TimeSale.scss';
 
 export default function TimeSale({ timesale }) {
   const DAY_HOUR = 24;

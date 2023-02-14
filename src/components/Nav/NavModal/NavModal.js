@@ -1,6 +1,5 @@
 import { NAVBAR_LIST } from '../Nav';
 import './NavModal.scss';
-import '../../../styles/common.scss';
 
 function NavModal({ currentMenuId, setCurrentMenuId }) {
   return (

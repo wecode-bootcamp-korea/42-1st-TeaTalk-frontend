@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Slider from './Slider/Slider';
-import TimeSale from './TimeSale/TimeSale';
 import MainRecommend from './Recommend/mainRecommend';
+import TimeSale from './TimeSale/TimeSale';
 import './Main.scss';
 
 function Main() {

@@ -1,8 +1,8 @@
+@import '../../styles/variables';
+
 .product {
-  display: flex;
+  @include flex($justify: center, $align: center);
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   height: 100%;
 

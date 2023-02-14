@@ -12,15 +12,28 @@ function Productlist() {
   }, []);
 
   return (
-    <>
+    <div className="productList">
       <div className="background" />
+
+      <div className="productWrap">
+        <div className="menuTab">
+          <div />
+          <div />
+        </div>
+
+        <div className="productContainer">
+          <div />
+          <div />
+        </div>
+      </div>
+
       <div className="itemContainer">
         {itemList.map((result, i) => {
           const product = itemList[i];
           return <Product key={i} product={product} />;
         })}
       </div>
-    </>
+    </div>
   );
 }
 

@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 .nav {
   display: flex;
   position: fixed;
@@ -14,7 +16,6 @@
   .startHeader {
     width: 15%;
     height: 50px;
-    // border: solid 1px black;
 
     .logo {
       width: 80%;
@@ -27,10 +28,8 @@
     justify-content: space-evenly;
     width: 20%;
     height: 100%;
-    // border: solid 1px rgb(74, 32, 197);
 
     .navMenuWrap {
-      // border: 1px solid red;
     }
 
     .navMenu {
@@ -45,53 +44,39 @@
   }
 
   .thirdHeader {
-    display: flex;
-    align-items: center;
-    justify-content: right;
+    @include flex($justify: right, $align: center);
     width: 40%;
     height: 100%;
     // border: solid 1px black;
 
     .cartWrap {
-      display: flex;
-      align-items: center;
+      @include flex($align: center);
       height: 100%;
-      // border: solid 1px black;
 
       .cartImg {
         height: 30px;
-        // width: 80%;
         margin: 20px;
-
-        // border: solid 1px black;
       }
     }
     .infoWrap {
       display: flex;
       align-items: center;
       height: 100%;
-      // border: solid 1px black;
 
       .infoImg {
         height: 30px;
-        // width: 80%;
         margin: 20px;
-        // border: solid 1px black;
       }
     }
   }
   .endHeader {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex($justify: center, $align: center);
     width: 5%;
     height: 100%;
-    // border: solid 1px black;
 
     .endHeaderLogin {
       width: 50px;
       margin: auto;
-      // border: solid 1px black;
     }
   }
 }

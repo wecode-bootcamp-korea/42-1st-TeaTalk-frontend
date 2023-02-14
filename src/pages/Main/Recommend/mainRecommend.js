@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import BestSlider from './Itemslider/bestSlider';
 import './mainRecommend.scss';
 

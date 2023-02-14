@@ -1,23 +1,33 @@
-.background {
-  height: 400px;
-  margin-top: 80px;
-  background-color: antiquewhite;
-  background-position: center;
-  background-size: cover;
-}
+.productList {
+  .background {
+    height: 400px;
+    margin-top: 80px;
+    background-color: antiquewhite;
+    background-position: center;
+    background-size: cover;
+  }
 
-.itemContainer {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  width: 1100px;
-  max-width: 1100px;
-  margin: 80px auto;
-  margin-bottom: 20px;
-  padding: 10px;
-  overflow: hidden;
-  column-gap: 10px;
+  .menuTab {
+    height: 100px;
+    border: solid 1px black;
+  }
+  .productContainer {
+    height: 100px;
+    border: solid 1px black;
+  }
+  .itemContainer {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    width: 1100px;
+    max-width: 1100px;
+    margin: 80px auto;
+    margin-bottom: 20px;
+    padding: 10px;
+    overflow: hidden;
+    column-gap: 10px;
 
-  .itemBox {
-    width: 200px;
+    .itemBox {
+      width: 200px;
+    }
   }
 }

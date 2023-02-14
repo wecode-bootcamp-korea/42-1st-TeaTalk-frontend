@@ -6,7 +6,6 @@ import Navinfo from './NavModal/Navinfo';
 import cart from './icon/cart.svg';
 import info from './icon/info.svg';
 import './Nav.scss';
-import '../../styles/common.scss';
 
 function Nav() {
   const [navlogin, setNavlogin] = useState(false);

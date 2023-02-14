@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import './Navinfo.scss';
-import '../../../styles/common.scss';
 
 function Navinfo() {
   return (

@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import './Navlogin.scss';
-import '../../../styles/common.scss';
 
 function Navlogin({ setNavlogin }) {
   return (

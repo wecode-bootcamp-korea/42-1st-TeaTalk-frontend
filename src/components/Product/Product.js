@@ -1,5 +1,4 @@
 import './Product.scss';
-import '../../styles/common.scss';
 
 function Product({ product }) {
   return (
