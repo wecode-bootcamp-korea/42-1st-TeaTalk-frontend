@@ -3,25 +3,12 @@ import './Terms.scss';
 import Detailmodal from './Detailmodal';
 
 function Terms() {
-  // 모달창 노출 여부 state
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCheckAll, setIsCheckAll] = useState(false);
   const [isFirstCheckBox, setIsFirstCheckBox] = useState(false);
   const [isSecondCheckBox, setIsSecondCheckBox] = useState(false);
   const [isThirdCheckBox, setIsThirdCheckBox] = useState(false);
   const [isFourthCheckBox, setIsFourthCheckBox] = useState(false);
-
-  // 모달창 노출
-  const showModal = () => {
-    if (isModalOpen === true) {
-      setIsModalOpen(true);
-    }
-  };
-
-  //모달창 닫기
-  // const closeModal = () => {
-  //   setModalOpen(false);
-  // };
 
   const allBtnEvent = () => {
     if (isCheckAll === false) {

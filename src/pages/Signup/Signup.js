@@ -50,7 +50,6 @@ function Signup() {
   };
 
   const goToMain = () => {
-    //navigate('/main');
     fetch('http://10.58.52.197:8000/users/signup', {
       method: 'POST',
       headers: {
