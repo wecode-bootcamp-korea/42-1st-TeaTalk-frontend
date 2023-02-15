@@ -1,28 +1,36 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import MenuModal from './MenuModal';
 import './MenuTab.scss';
 
 function MenuTab() {
   const [currentMenuId, setCurrentMenuId] = useState('');
+  const navigate = useNavigate();
   return (
-    <div className="menuTab11">
-      {CATEGORY.map(({ title, id }) => {
+    <div className="menuTab">
+      {CATEGORY.map(({ title, id, classname }) => {
         return (
           <div
-            className="navMenuWrap"
+            className="menuBox"
             key={id}
             onMouseEnter={() => setCurrentMenuId(id)}
             onMouseLeave={() => setCurrentMenuId()}
           >
-            <div className="A1">
-              <div className="A2"> {title}</div>
+            <div className="menuWrap">
               {currentMenuId === id ? (
                 <MenuModal
                   setCurrentMenuId={setCurrentMenuId}
                   currentMenuId={currentMenuId}
                 />
               ) : null}
+              <div
+                className="categoryTitle"
+                onClick={() => {
+                  navigate(`/products/?categoryId=${classname}`);
+                }}
+              >
+                {title}
+              </div>
             </div>
           </div>
         );
@@ -35,62 +43,54 @@ export const CATEGORY = [
   {
     id: 1,
     title: '티제품',
-    classname: 'navbarAlign1',
+    classname: 'teashop',
     category: [
       {
         id: 1,
-        list: ['전체상품', '녹차', '홍차', '티세트'],
+        list: '녹차',
+        subclassname: 'greentea',
+      },
+      {
+        id: 2,
+        list: '홍차',
+        subclassname: 'blacktea',
+      },
+      {
+        id: 3,
+        list: '티세트',
+        subclassname: 'teaset',
       },
     ],
   },
   {
     id: 2,
     title: '티푸드',
-    classname: 'navbarAlign1',
+    classname: 'teafood',
     category: [
       {
         id: 1,
-        list: ['전체상품', '과자/초콜릿', '베이커리', '아이스크림'],
+        list: '케익',
+        subclassname: 'cake',
+      },
+      {
+        id: 2,
+        list: '빵',
+        subclassname: 'bread',
       },
     ],
   },
   {
     id: 3,
-    title: '라이프 스타일',
-    classname: 'navbarAlign1',
+    title: '티웨어',
+    classname: 'teaware',
     category: [
       {
         id: 1,
-        list: ['전체상품', '스킨케어'],
+        list: '텀블러',
+        subclassname: 'tumblr',
       },
     ],
   },
-  // {
-  //   id: 2,
-  //   title: '티푸드',
-  //   classname: 'navbarAlign2',
-  //   category: [
-  //     {
-  //       id: 1,
-  //       list: ['선물추천1', '선물세트'],
-  //     },
-  //   ],
-  // },
-  // {
-  //   id: 2,
-  //   title: '티푸드',
-  //   classname: 'navbarAlign2',
-  //   category: [
-  //     {
-  //       id: 1,
-  //       list: ['선물추천1', '선물세트'],
-  //     },
-  //     {
-  //       id: 2,
-  //       list: ['선물추천2', '선물세트'],
-  //     },
-  //   ],
-  // },
 ];
 
 export default MenuTab;

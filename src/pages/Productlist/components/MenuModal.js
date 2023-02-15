@@ -1,53 +1,37 @@
-import { CATEGORY, NAVBAR_LIST } from './MenuTab';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { CATEGORY } from './MenuTab';
 import './MenuModal.scss';
 
 function MenuModal({ currentMenuId, setCurrentMenuId }) {
+  const navigate = useNavigate();
   return (
-    <div className="MenuModal">
-      <div className="MenuModalinner" onMouseLeave={() => setCurrentMenuId()}>
-        <div className="MenuModalMenu">
-          {CATEGORY.map(({ id, category }) => {
-            return (
-              <div className="MenuModalWrap" key={id}>
-                {id === currentMenuId &&
-                  category.map(({ id, list }) => (
-                    <div className="MenuNavbarDropdown" key={id}>
-                      {list.map(list => {
-                        return (
-                          <ul>
-                            <li>{list}</li>
-                          </ul>
+    <div className="menuModal">
+      <div className="menuModalinner" onMouseLeave={() => setCurrentMenuId()} />
+
+      <div className="menuModalContainer">
+        {CATEGORY.map(({ category, id, classname }) => {
+          return (
+            <div className="menuModalWrap" key={id}>
+              {id === currentMenuId
+                ? category.map(({ id, subclassname, list }) => (
+                    <span
+                      key={id}
+                      onClick={() => {
+                        navigate(
+                          `/products/?categoryId=${classname}&subCategoryId=${subclassname}`
                         );
-                      })}
-                    </div>
-                  ))}
-              </div>
-            );
-          })}
-        </div>
+                      }}
+                    >
+                      {list}
+                    </span>
+                  ))
+                : null}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
 }
 export default MenuModal;
-
-// <div className="MenuModalMenu">
-//   {CATEGORY.map(({ id, category }) => {
-//     return (
-//       <div className="MenuModalWrap" key={id}>
-//         {id === currentMenuId &&
-//           category.map(({ id, list }) => (
-//             <div className="MenuNavbarDropdown" key={id}>
-//               {list.map(list => {
-//                 return (
-//                   <ul>
-//                     <li>{list}</li>
-//                   </ul>
-//                 );
-//               })}
-//             </div>
-//           ))}
-//       </div>
-//     );
-//   })}
-// </div>

@@ -2,15 +2,18 @@ import { useState, useEffect } from 'react';
 import Product from '../../components/Product/Product';
 import MenuTab from './components/MenuTab';
 import './Productlist.scss';
+
 function Productlist() {
-  const [itemList, setItemList] = useState([]);
+  const [product, setProduct] = useState([]);
 
   useEffect(() => {
-    fetch('/data/productList.json')
+    fetch(
+      'http://10.58.52.71:8000/products?categoryId=teashop&subCategoryId=blacktea&sort=price_desc'
+    )
+      // fetch('/data/productList.json')
       .then(response => response.json())
-      .then(result => setItemList(result));
+      .then(({ data }) => setProduct(data));
   }, []);
-
   return (
     <div className="productList">
       <div className="background" />
@@ -18,27 +21,20 @@ function Productlist() {
       <div className="productWrap">
         <div className="aisde">
           <div className="asideHeader">제품</div>
-          {/* <div className="menuItem"> */}
           <MenuTab />
-          {/* <ul>
-              <li>Category</li>
-              <li>Category</li>
-              <li>Category</li>
-            </ul> */}
-          {/* </div> */}
         </div>
 
         <div className="productContainer">
           <div className="sortTab">
             <div className="subCategory">subCategory</div>
             <div className="sortBtn">
-              <button>sort</button>
-              <button>sort</button>
-              <button>sort</button>
+              <button>신상품순</button>
+              <button>높은 가격순</button>
+              <button>낮은 가격순</button>
             </div>
           </div>
           <div className="filterTab">
-            <h3>총 100개의 상품이 있어</h3>
+            <h3>총 {product.length}개의 상품이 있습니다.</h3>
             <div className="filterBtn">
               <button>type</button>
               <button>type</button>
@@ -48,9 +44,12 @@ function Productlist() {
           </div>
 
           <div className="itemContainer">
-            {itemList.map((result, i) => {
-              const product = itemList[i];
-              return <Product key={i} product={product} />;
+            {product.map((result, id) => {
+              return (
+                <div className="itemBox">
+                  <Product key={id} product={result} />;
+                </div>
+              );
             })}
           </div>
           <div className="pageNation">pagenation</div>
