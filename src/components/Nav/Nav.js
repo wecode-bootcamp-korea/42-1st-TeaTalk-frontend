@@ -1,7 +1,7 @@
 import './Nav.scss';
 
 function Nav() {
-  return <h1>nav</h1>;
+  return;
 }
 
 export default Nav;
