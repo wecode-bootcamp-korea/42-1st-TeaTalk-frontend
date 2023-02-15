@@ -11,13 +11,7 @@ function ModalMenuList({ currentMenuId }) {
             {id === currentMenuId &&
               category.map(({ id, list }) => (
                 <div className="navbarDropdown" key={id}>
-                  {list.map(list => {
-                    return (
-                      <ul>
-                        <li>{list}</li>
-                      </ul>
-                    );
-                  })}
+                  <span key={id}>{list}</span>
                 </div>
               ))}
           </div>

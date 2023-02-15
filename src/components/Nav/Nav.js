@@ -12,10 +12,10 @@ function Nav() {
   const [navinfo, setNavinfo] = useState(false);
   const [currentMenuId, setCurrentMenuId] = useState('');
 
-  const NavOnMouseEnter = () => {
+  const navOnMouseEnter = () => {
     setCurrentMenuId(NAVBAR_LIST[0].id);
   };
-  const NavOnMouseLeave = () => {
+  const navOnMouseLeave = () => {
     setCurrentMenuId();
   };
   const infoOnMouseLeave = () => {
@@ -45,17 +45,17 @@ function Nav() {
             <div
               className="navMenuWrap"
               key={id}
-              onMouseEnter={NavOnMouseEnter}
-              onMouseLeave={NavOnMouseLeave}
+              onMouseEnter={navOnMouseEnter}
+              onMouseLeave={navOnMouseLeave}
             >
               <div className="navMenu">
                 <div className="navMenuTitle"> {title}</div>
-                {currentMenuId === id && (
+                {currentMenuId === id ? (
                   <NavModal
                     setCurrentMenuId={setCurrentMenuId}
                     currentMenuId={currentMenuId}
                   />
-                )}
+                ) : null}
               </div>
             </div>
           );
@@ -92,35 +92,52 @@ export default Nav;
 export const NAVBAR_LIST = [
   {
     id: 1,
-    title: '제품',
-    classname: 'navbarAlign1',
+    title: '티제품',
+    classname: 'teashop',
     category: [
       {
         id: 1,
-        list: ['티제품', '녹차', '홍차', '티세트'],
+        list: '녹차',
+        subclassname: 'greentea',
       },
       {
         id: 2,
-        list: ['티푸드', '베이커리', '초콜릿'],
+        list: '홍차',
+        subclassname: 'blacktea',
       },
       {
         id: 3,
-        list: ['티웨어', '티포트', '텀블러'],
+        list: '티세트',
+        subclassname: 'teaset',
       },
     ],
   },
   {
     id: 2,
-    title: '선물추천',
-    classname: 'navbarAlign2',
+    title: '티푸드',
+    classname: 'teafood',
     category: [
       {
         id: 1,
-        list: ['선물추천1', '선물세트'],
+        list: '케익',
+        subclassname: 'cake',
       },
       {
         id: 2,
-        list: ['선물추천2', '선물세트'],
+        list: '빵',
+        subclassname: 'bread',
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: '티웨어',
+    classname: 'teaware',
+    category: [
+      {
+        id: 1,
+        list: '텀블러',
+        subclassname: 'tumblr',
       },
     ],
   },
