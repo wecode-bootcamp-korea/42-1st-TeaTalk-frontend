@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Slider from './Slider/Slider';
 import MainRecommend from './Recommend/mainRecommend';
 import TimeSale from './TimeSale/TimeSale';
+import Notice from './Notice/Notice';
 import './Main.scss';
+import Subscribe from './Susbscribe/Subscribe';
 
 function Main() {
   const [timeSale, setTimeSale] = useState([]);
@@ -17,6 +19,7 @@ function Main() {
     <div className="main">
       <div>
         <Slider />
+        <Notice />
         <MainRecommend />
       </div>
 
@@ -37,6 +40,8 @@ function Main() {
           <div className="teaTalkStory" />
         </div>
       </div>
+
+      <Subscribe />
     </div>
   );
 }
