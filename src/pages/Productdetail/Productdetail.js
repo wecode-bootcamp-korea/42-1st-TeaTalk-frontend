@@ -1,171 +1,120 @@
+import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import Productlist from '../Productlist/Productlist';
+import { PURCHASE_BENEFIT } from './PURCHASE_BENEFIT';
 import './ProductDetail.scss';
-import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { getProducts } from '../../service/tetcher';
 
-const ProductDetail = ({ convertPrice, cart, setCart }) => {
-  const { id } = useParams();
-  const [product, setProduct] = useState({});
+const ProductDetail = () => {
+  const [product, setProduct] = useState([]);
   const [count, setCount] = useState(1);
-
+  const params = useParams();
+  const productId = params.id;
   const navigate = useNavigate();
 
-  const handleQuantity = type => {
-    if (type === 'plus') {
-      setCount(count + 1);
-    } else {
-      if (count === 1) return;
-      setCount(count - 1);
-    }
+  const decreaseQuantity = () => {
+    if (count === 1) return;
+    setCount(prev => prev - 1);
   };
+
+  const increaseQuantity = () => {
+    if (count >= 10) return;
+    setCount(prev => prev + 1);
+  };
+
+  const editQuantity = e => {
+    const switchedValueToNumber = Number(e.target.value);
+    if (switchedValueToNumber >= 11) {
+      alert('10보다클 수 없습니다');
+      return;
+    }
+    setCount(switchedValueToNumber);
+  };
+  //장바구니 버튼 누르면, productId,qudntity 담아서 서버에 요청하는 fetch
+  const submitCart = () => {
+    fetch(`http://127.0.01:8000/detail/${productId}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({
+        productId,
+        quantity: count,
+      }),
+    })
+      .then(response => response.json())
+      .then(data => console.log(data));
+    //if(백엔드 reponse조건에 따라서){
+    // navigate('/cart')}
+  };
+  //mount 되면 데이터 받아오는 fetch
   useEffect(() => {
-    getProducts().then(data => {
-      setProduct(
-        data.data.products.find(product => product.id === parseInt(id))
-      );
-    });
-  }, [id]);
-
-  const setQuantity = (id, quantity) => {
-    const found = cart.filter(el => el.id === id)[0];
-    const idx = cart.indexOf(found);
-    const cartItem = {
-      id: product.id,
-      image: product.image,
-      name: product.name,
-      price: product.price,
-      provider: product.provider,
-      quantity: quantity,
-      explanation: product.explanation,
-    };
-    setCart([...cart.slice(0, idx), cartItem, ...cart.slice(idx + 1)]);
-  };
-
-  const handleCart = () => {
-    const cartItem = {
-      id: product.id,
-      image: product.image,
-      name: product.name,
-      price: product.price,
-      provider: product.provider,
-      quantity: count,
-      explanation: product.explanation,
-    };
-    const found = cart.find(el => el.id === cartItem.id);
-    if (found) setQuantity(cartItem.id, found.quantity + count);
-    else {
-      setCart([...cart, cartItem]);
-    }
-  };
+    fetch('/data/products.json')
+      .then(response => response.json())
+      .then(data => setProduct(data.data));
+  }, []);
 
   return (
-    product && (
-      <div id="renew">
-        <div id="contents">
-          <div className="itemDetailTop">
-            <div className="itemInfo">
-              <div className="left">
-                <div className="itemThumb">
-                  <div className="thumb">
-                    <img src={product.image} alt="product" />
-                  </div>
-                  <ul className="itemUl">
-                    <li className="itemLi">
-                      <i class="fas fa-coins" />
-                      <span>뷰티포인트 230p 적립</span>
-                    </li>
-                    <li className="itemLi">
-                      <i class="fas fa-coffee" />
-                      찻잎 230p 적립
-                    </li>
-                    <li className="itemLi">
-                      <i class="fas fa-truck" />
-                      3만원 이상 무료배송
-                    </li>
-                    <li className="itemLi">
-                      <i class="fas fa-gift" />
-                      포장 가능
-                    </li>
-                    <li className="itemLi">
-                      <i class="fas fa-suitcase" />
-                      쇼핑백 동봉
-                    </li>
-                  </ul>
-                  <div class="recommendTag">
-                    <span className="tag">추천</span>
-                  </div>
-                </div>
+    <div className="productDetail">
+      {product.map(productState => {
+        const {
+          id,
+          product_name,
+          price,
+          title_image,
+          subcategory_name,
+          category_name,
+          description,
+        } = productState;
+        return (
+          <React.Fragment key={id}>
+            <div className="productInfoContainer">
+              <div className="productImage">
+                <img src={title_image} alt="" />
               </div>
-              <div className="right">
-                <div className="location">
-                  <a href="/tea">티제품</a>
-                  <i class="fas fa-chevron-right bar" />
-                  <a href="/tesset">티 세트</a>
-                </div>
-                <div className="productInfo">
-                  <p className="explanation">{product.explanation}</p>
-                  <p className="productName">{product.name}</p>
-                  <p className="sellerStore">{product.provider}</p>
-                  <div className="priceTag">
-                    <strong className="price">
-                      {convertPrice(product.price + '')}
-                      <span className="unit">원</span>
-                    </strong>
-                  </div>
-                </div>
-                <div className="delivery">
-                  <p>택배배송 / 무료배송</p>
-                </div>
-
-                <div className="line" />
-
-                <div className="amount">
-                  <img
-                    className="minus"
-                    src="/images/icon-minus-line.svg"
-                    alt="minus"
-                    onClick={() => handleQuantity('minus')}
-                  />
-
-                  <div className={count}>
-                    <span>{count}</span>
-                  </div>
-
-                  <img
-                    className="plus"
-                    src="/images/icon-plus-line.svg"
-                    alt="plus"
-                    onClick={() => handleQuantity('plus')}
-                  />
-                </div>
-
-                <div className="line" />
-
-                <div className="sumBox">
-                  <div className="sum">
-                    <span className="sumPrice">상품금액 합계</span>
-                  </div>
-
-                  <div className="totalInfo">
-                    <span className={cart.quantity}>총 수량 </span>
-                    <span className={cart.quantity}>{count}개</span>
-                    {convertPrice(product.price * count)}
-                    <span className="totalUnit">원</span>
-                  </div>
-                </div>
-
-                <div className="btn12">
-                  <button className="btnCart" onClick={() => handleCart()}>
-                    장바구니
-                  </button>
-                  <button className="btnBuy">바로 구매</button>
-                </div>
+              <div>
+                <ul className="benefit">
+                  {PURCHASE_BENEFIT.map(({ benefit, id }) => (
+                    <li key={id}>{benefit}</li>
+                  ))}
+                </ul>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    )
+            <div className="orderContainer">
+              <div className="orderHead">
+                <p>
+                  {category_name} &gt; {subcategory_name}
+                </p>
+                <h1>{product_name}</h1>
+                <h3>{description}</h3>
+                <h2 className="price">{price.toLocaleString()}원</h2>
+              </div>
+              <div className="quantity">
+                <p>구매수량</p>
+                <div>
+                  <button onClick={decreaseQuantity}>-</button>
+                  <input onChange={editQuantity} value={count} />
+
+                  <button onClick={increaseQuantity}>+</button>
+                </div>
+              </div>
+              <div className="grandTotal">
+                <p>상품금액 합계</p>
+                <p>{(count * price).toLocaleString()}원</p>
+              </div>
+              <div className="buttonWrapper">
+                <button className="moveCart" name="cart" onClick={submitCart}>
+                  장바구니
+                </button>
+                <button className="movePayment" name="purchase">
+                  바로구매
+                </button>
+              </div>
+              <div />
+            </div>
+          </React.Fragment>
+        );
+      })}
+    </div>
   );
 };
 
