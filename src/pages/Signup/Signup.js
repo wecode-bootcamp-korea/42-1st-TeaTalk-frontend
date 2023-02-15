@@ -11,7 +11,6 @@ function Signup() {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [birthday, setBirthday] = useState('');
   const [name, setName] = useState('');
-  const [error, setError] = useState('');
   const [toggle, setToggle] = useState(true);
   const navigate = useNavigate();
 
@@ -26,13 +25,6 @@ function Signup() {
   };
   const getEmail = e => {
     setEmail(e.target.value);
-
-    if (regexEmail.test(email) === false) {
-      setError('이메일 형식이 올바르지 않습니다.');
-    } else {
-      setError('형식에 맞는 이메일주소 입니다.');
-      return true;
-    }
   };
   const getPhoneNumber = e => {
     setPhoneNumber(e.target.value);
@@ -48,6 +40,17 @@ function Signup() {
   const getGender = e => {
     setToggle(!toggle);
   };
+
+  // const onChangeEventHandler = e => {
+  //   setId(e.target.value);
+  //   setPw(e.target.value);
+  //   setCheckPw(e.target.value);
+  //   setEmail(e.target.value);
+  //   setPhoneNumber(e.target.value);
+  //   setName(e.target.value);
+  //   setBirthday(e.target.value);
+  //   setToggle(!toggle);
+  // };
 
   const goToMain = () => {
     fetch('http://10.58.52.197:8000/users/signup', {
@@ -77,6 +80,16 @@ function Signup() {
     } else if (pw !== checkPw) {
       return '비밀번호가 일치하지 않습니다.';
     } else if (checkPw.length < 0 && pw.length < 0) {
+      return null;
+    }
+  };
+
+  const waringEmail = () => {
+    if (regexEmail.test(email) === false && email.length > 0) {
+      return '이메일 형식이 올바르지 않습니다.';
+    } else if (regexEmail.test(email) === true) {
+      return '형식에 맞는 이메일주소 입니다.';
+    } else if (email.length === 0) {
       return null;
     }
   };
@@ -137,7 +150,7 @@ function Signup() {
               regexEmail.test(email) === false ? 'eRedMsg' : 'eGreenMsg'
             }
           >
-            {error}
+            {waringEmail()}
           </p>
           <input
             className="birthday"

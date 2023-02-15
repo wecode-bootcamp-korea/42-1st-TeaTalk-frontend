@@ -5,71 +5,96 @@ import Detailmodal from './Detailmodal';
 function Terms() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCheckAll, setIsCheckAll] = useState(false);
-  const [isFirstCheckBox, setIsFirstCheckBox] = useState(false);
-  const [isSecondCheckBox, setIsSecondCheckBox] = useState(false);
-  const [isThirdCheckBox, setIsThirdCheckBox] = useState(false);
-  const [isFourthCheckBox, setIsFourthCheckBox] = useState(false);
+  const [isOfferPrivacyBox, setIsOfferPrivacyBox] = useState(false);
+  const [isTermsOfUseBox, setIsTermsOfUseBox] = useState(false);
+  const [isPrivacyCollectionBox, setIsPrivacyCollectionBox] = useState(false);
+  const [isUsePrivacyBox, setIsUsePrivacyBox] = useState(false);
 
   const allBtnEvent = () => {
     if (isCheckAll === false) {
       setIsCheckAll(true);
-      setIsFirstCheckBox(true);
-      setIsSecondCheckBox(true);
-      setIsThirdCheckBox(true);
-      setIsFourthCheckBox(true);
+      setIsOfferPrivacyBox(true);
+      setIsTermsOfUseBox(true);
+      setIsPrivacyCollectionBox(true);
+      setIsUsePrivacyBox(true);
     } else {
       setIsCheckAll(false);
-      setIsFirstCheckBox(false);
-      setIsSecondCheckBox(false);
-      setIsThirdCheckBox(false);
-      setIsFourthCheckBox(false);
+      setIsOfferPrivacyBox(false);
+      setIsTermsOfUseBox(false);
+      setIsPrivacyCollectionBox(false);
+      setIsUsePrivacyBox(false);
     }
   };
 
-  const firstBoxEvent = () => {
-    if (isFirstCheckBox === false) {
-      setIsFirstCheckBox(true);
+  const offerPrivacyEvent = () => {
+    if (isOfferPrivacyBox === false) {
+      setIsOfferPrivacyBox(true);
     } else {
-      setIsFirstCheckBox(false);
+      setIsOfferPrivacyBox(false);
     }
   };
 
-  const SecondBoxEvent = () => {
-    if (isSecondCheckBox === false) {
-      setIsSecondCheckBox(true);
+  const termsOfUseEvent = () => {
+    if (isTermsOfUseBox === false) {
+      setIsTermsOfUseBox(true);
     } else {
-      setIsSecondCheckBox(false);
+      setIsTermsOfUseBox(false);
     }
   };
 
-  const thirdBoxEvent = () => {
-    if (isThirdCheckBox === false) {
-      setIsThirdCheckBox(true);
+  const privacyCollectionEvent = () => {
+    if (isPrivacyCollectionBox === false) {
+      setIsPrivacyCollectionBox(true);
     } else {
-      setIsThirdCheckBox(false);
+      setIsPrivacyCollectionBox(false);
     }
   };
 
-  const fourthBoxEvent = () => {
-    if (isFourthCheckBox === false) {
-      setIsFourthCheckBox(true);
+  const usePrivacyEvent = () => {
+    if (isUsePrivacyBox === false) {
+      setIsUsePrivacyBox(true);
     } else {
-      setIsFourthCheckBox(false);
+      setIsUsePrivacyBox(false);
     }
   };
+
+  // const checkBoxEventHandler = () => {
+  //   if (isOfferPrivacyBox === false) {
+  //     setIsOfferPrivacyBox(true);
+  //   } else if (isOfferPrivacyBox === true) {
+  //     setIsOfferPrivacyBox(false);
+  //   } else if (isTermsOfUseBox === false) {
+  //     setIsTermsOfUseBox(true);
+  //   } else if (isTermsOfUseBox === true) {
+  //     setIsTermsOfUseBox(false);
+  //   } else if (isPrivacyCollectionBox === false) {
+  //     setIsPrivacyCollectionBox(true);
+  //   } else if (isPrivacyCollectionBox === true) {
+  //     setIsPrivacyCollectionBox(false);
+  //   } else if (isUsePrivacyBox === false) {
+  //     setIsUsePrivacyBox(true);
+  //   } else if (isUsePrivacyBox === true) {
+  //     setIsUsePrivacyBox(false);
+  //   }
+  // };
 
   useEffect(() => {
     if (
-      isFirstCheckBox === true &&
-      isSecondCheckBox === true &&
-      isThirdCheckBox === true &&
-      isFourthCheckBox === true
+      isOfferPrivacyBox === true &&
+      isTermsOfUseBox === true &&
+      isPrivacyCollectionBox === true &&
+      isUsePrivacyBox === true
     ) {
       setIsCheckAll(true);
     } else {
       setIsCheckAll(false);
     }
-  }, [isFirstCheckBox, isSecondCheckBox, isThirdCheckBox, isFourthCheckBox]);
+  }, [
+    isOfferPrivacyBox,
+    isTermsOfUseBox,
+    isPrivacyCollectionBox,
+    isUsePrivacyBox,
+  ]);
 
   return (
     <div className="termsCheckList">
@@ -82,8 +107,8 @@ function Terms() {
         <div className="firstCheckbox">
           <input
             type="checkbox"
-            checked={isFirstCheckBox}
-            onChange={firstBoxEvent}
+            checked={isOfferPrivacyBox}
+            onChange={offerPrivacyEvent}
           />
           <span>[필수] 개인정보 제3자 제공 동의</span>
           <span
@@ -101,8 +126,8 @@ function Terms() {
         <div>
           <input
             type="checkbox"
-            checked={isSecondCheckBox}
-            onChange={SecondBoxEvent}
+            checked={isTermsOfUseBox}
+            onChange={termsOfUseEvent}
           />
           <span>[필수]TeaTalk 서비스 이용약관</span>
           <span className="more">더보기</span>
@@ -110,8 +135,8 @@ function Terms() {
         <div>
           <input
             type="checkbox"
-            checked={isThirdCheckBox}
-            onChange={thirdBoxEvent}
+            checked={isPrivacyCollectionBox}
+            onChange={privacyCollectionEvent}
           />
           <span>[필수]개인정보 수집동의</span>
           <span className="more">더보기</span>
@@ -119,8 +144,8 @@ function Terms() {
         <div>
           <input
             type="checkbox"
-            checked={isFourthCheckBox}
-            onChange={fourthBoxEvent}
+            checked={isUsePrivacyBox}
+            onChange={usePrivacyEvent}
           />
           <span>[선택]개인정보 수집/이용 동의</span>
           <span className="more">더보기</span>

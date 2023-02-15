@@ -5,6 +5,8 @@ import './Login.scss';
 function Login() {
   const [id, setId] = useState(' ');
   const [pw, setPw] = useState(' ');
+
+  const [userInfo, setUserInfo] = useState({ id: '', pw: '' });
   const navigate = useNavigate();
 
   const getUserId = e => {
@@ -20,7 +22,7 @@ function Login() {
   };
 
   const goToMain = () => {
-    fetch('http://10.58.52.229:3000/user/login', {
+    fetch('http://10.58.52.197:8000/users/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',

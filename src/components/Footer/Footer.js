@@ -4,8 +4,6 @@ import './Footer.scss';
 function Footer() {
   const navigate = useNavigate();
 
-  //if ((window.location.pathname === '/signup', '/')) return null;
-
   const goToLogin = () => {
     navigate('/signup');
   };
