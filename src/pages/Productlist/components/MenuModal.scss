@@ -1,40 +1,27 @@
 // @import '../../../styles/variables';
 
 .MenuModal {
-  display: block;
-  position: fixed;
-  z-index: 99;
-  // border: solid 2px black;
-  // top: 80px;
-  // right: 0;
-  // bottom: 0;
-  // left: 0;
+  // display: block;
+  // position: fixed;
+  // z-index: 99;
+  border: solid 2px black;
 
   .MenuModalinner {
-    display: flex;
-    width: 100%;
-    // height: 400px;
-    // padding: 10px;
-    // background-color: white;
+    // width: 100%;
     // border: solid 2px black;
-
     .MenuModalMenu {
-      display: flex;
-      flex: 1.8;
       line-height: 3;
+      .MenuModalWrap {
+        // position: fixed;
+        font-size: 20px;
+        border: solid 2px black;
+        .MenuavbarDropdown {
+          width: 150px;
+          ul:first-child {
+            font-weight: bold;
+          }
+        }
+      }
     }
-  }
-}
-.MenuModalWrap {
-  display: flex;
-  position: fixed;
-  padding-left: 40px;
-  font-size: 18px;
-}
-
-.MenuavbarDropdown {
-  width: 150px;
-  ul:first-child {
-    font-weight: bold;
   }
 }

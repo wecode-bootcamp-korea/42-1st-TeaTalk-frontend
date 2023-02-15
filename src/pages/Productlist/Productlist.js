@@ -16,8 +16,8 @@ function Productlist() {
       <div className="background" />
 
       <div className="productWrap">
-        <div className="menuTab">
-          <div className="menuHeader">PRODUCT</div>
+        <div className="aisde">
+          <div className="asideHeader">제품</div>
           {/* <div className="menuItem"> */}
           <MenuTab />
           {/* <ul>

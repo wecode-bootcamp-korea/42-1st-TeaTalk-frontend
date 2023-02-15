@@ -30,3 +30,24 @@ function MenuModal({ currentMenuId, setCurrentMenuId }) {
   );
 }
 export default MenuModal;
+
+// <div className="MenuModalMenu">
+//   {CATEGORY.map(({ id, category }) => {
+//     return (
+//       <div className="MenuModalWrap" key={id}>
+//         {id === currentMenuId &&
+//           category.map(({ id, list }) => (
+//             <div className="MenuNavbarDropdown" key={id}>
+//               {list.map(list => {
+//                 return (
+//                   <ul>
+//                     <li>{list}</li>
+//                   </ul>
+//                 );
+//               })}
+//             </div>
+//           ))}
+//       </div>
+//     );
+//   })}
+// </div>
