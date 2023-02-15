@@ -3,18 +3,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Login.scss';
 
 function Login() {
-  const [id, setId] = useState(' ');
-  const [pw, setPw] = useState(' ');
-
   const [userInfo, setUserInfo] = useState({ id: '', pw: '' });
   const navigate = useNavigate();
 
-  const getUserId = e => {
-    setId(e.target.value);
-  };
-
-  const getUserPw = e => {
-    setPw(e.target.value);
+  const getUserInfo = event => {
+    const { name, value } = event.target;
+    setUserInfo({ ...userInfo, [name]: value });
   };
 
   const goToSignUp = () => {
@@ -28,8 +22,8 @@ function Login() {
         'Content-Type': 'application/json;charset=utf-8',
       },
       body: JSON.stringify({
-        account: id,
-        password: pw,
+        account: userInfo.id,
+        password: userInfo.pw,
       }),
     })
       .then(response => response.json())
@@ -43,7 +37,7 @@ function Login() {
       });
   };
 
-  const isDisabled = id.length > 0 && pw.length > 1;
+  const isDisabled = userInfo.id.length > 1 && userInfo.pw.length > 1;
 
   return (
     <div className="login">
@@ -62,13 +56,15 @@ function Login() {
               type="text"
               className="inputId"
               placeholder="아이디 입력"
-              onChange={getUserId}
+              onChange={getUserInfo}
+              name="id"
             />
             <input
               type="password"
               className="inputPw"
               placeholder="비밀번호 입력 (영문, 숫자, 특수문자 조합)"
-              onChange={getUserPw}
+              onChange={getUserInfo}
+              name="pw"
             />
             <div className="checkBox">
               <input type="checkbox" className="saveId" />

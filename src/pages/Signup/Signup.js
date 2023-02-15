@@ -4,53 +4,26 @@ import Terms from './Terms';
 import './Signup.scss';
 
 function Signup() {
-  const [id, setId] = useState('');
-  const [pw, setPw] = useState('');
-  const [checkPw, setCheckPw] = useState('');
-  const [email, setEmail] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [birthday, setBirthday] = useState('');
-  const [name, setName] = useState('');
+  const [signupInfo, setSignupInfo] = useState({
+    email: '',
+    phoneNumber: '',
+    birthday: '',
+    name: '',
+    id: '',
+    pw: '',
+    checkPw: '',
+  });
   const [toggle, setToggle] = useState(true);
   const navigate = useNavigate();
 
-  const getId = e => {
-    setId(e.target.value);
-  };
-  const getPw = e => {
-    setPw(e.target.value);
-  };
-  const checkPassword = e => {
-    setCheckPw(e.target.value);
-  };
-  const getEmail = e => {
-    setEmail(e.target.value);
-  };
-  const getPhoneNumber = e => {
-    setPhoneNumber(e.target.value);
-  };
-  const getName = e => {
-    setName(e.target.value);
-  };
-
-  const getBirthday = e => {
-    setBirthday(e.target.value);
+  const getSignupInfo = event => {
+    const { name, value } = event.target;
+    setSignupInfo({ ...signupInfo, [name]: value });
   };
 
   const getGender = e => {
     setToggle(!toggle);
   };
-
-  // const onChangeEventHandler = e => {
-  //   setId(e.target.value);
-  //   setPw(e.target.value);
-  //   setCheckPw(e.target.value);
-  //   setEmail(e.target.value);
-  //   setPhoneNumber(e.target.value);
-  //   setName(e.target.value);
-  //   setBirthday(e.target.value);
-  //   setToggle(!toggle);
-  // };
 
   const goToMain = () => {
     fetch('http://10.58.52.197:8000/users/signup', {
@@ -59,12 +32,12 @@ function Signup() {
         'Content-Type': 'application/json;charset=utf-8',
       },
       body: JSON.stringify({
-        account: id,
-        password: pw,
-        email: email,
-        name: name,
-        phoneNum: phoneNumber,
-        birthdate: birthday,
+        account: signupInfo.id,
+        password: signupInfo.pw,
+        email: signupInfo.email,
+        name: signupInfo.name,
+        phoneNum: signupInfo.phoneNumber,
+        birthdate: signupInfo.birthday,
         gender: toggle,
       }),
     })
@@ -75,21 +48,28 @@ function Signup() {
       });
   };
   const waringPw = () => {
-    if (pw === checkPw && checkPw.length > 0 && pw.length > 0) {
+    if (
+      signupInfo.pw === signupInfo.checkPw &&
+      signupInfo.checkPw.length > 0 &&
+      signupInfo.pw.length > 0
+    ) {
       return '비밀번호 일치';
-    } else if (pw !== checkPw) {
+    } else if (signupInfo.pw !== signupInfo.checkPw) {
       return '비밀번호가 일치하지 않습니다.';
-    } else if (checkPw.length < 0 && pw.length < 0) {
+    } else if (signupInfo.checkPw.length < 0 && signupInfo.pw.length < 0) {
       return null;
     }
   };
 
   const waringEmail = () => {
-    if (regexEmail.test(email) === false && email.length > 0) {
+    if (
+      regexEmail.test(signupInfo.email) === false &&
+      signupInfo.email.length > 0
+    ) {
       return '이메일 형식이 올바르지 않습니다.';
-    } else if (regexEmail.test(email) === true) {
+    } else if (regexEmail.test(signupInfo.email) === true) {
       return '형식에 맞는 이메일주소 입니다.';
-    } else if (email.length === 0) {
+    } else if (signupInfo.email.length === 0) {
       return null;
     }
   };
@@ -100,11 +80,11 @@ function Signup() {
   const regexPw = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,20})/i;
 
   const isDisabledJoin =
-    id.length > 0 &&
-    regexPw.test(pw) === true &&
-    regexEmail.test(email) === true &&
-    phoneNumber.length > 0 &&
-    name.length > 0 &&
+    signupInfo.id.length > 0 &&
+    regexPw.test(signupInfo.pw) === true &&
+    regexEmail.test(signupInfo.email) === true &&
+    signupInfo.phoneNumber.length > 0 &&
+    signupInfo.name.length > 0 &&
     (toggle === true || toggle === false);
 
   return (
@@ -118,36 +98,46 @@ function Signup() {
             className="userId"
             type="text"
             placeholder="아이디"
-            onChange={getId}
+            onChange={getSignupInfo}
+            name="id"
           />
           <input
             className="userName"
             type="text"
             placeholder="이름"
-            onChange={getName}
+            onChange={getSignupInfo}
+            name="name"
           />
           <input
             type="password"
             placeholder="비밀번호 (영문, 숫자, 특수문자 조합 8자 이상)"
-            onChange={getPw}
+            onChange={getSignupInfo}
+            name="pw"
           />
           <input
             type="password"
             placeholder="비밀번호 확인"
-            onChange={checkPassword}
+            onChange={getSignupInfo}
           />
-          <p className={pw === checkPw ? 'pwGreenMsg' : 'pwRedMsg'}>
+          <p
+            className={
+              signupInfo.pw === signupInfo.checkPw ? 'pwGreenMsg' : 'pwRedMsg'
+            }
+          >
             {waringPw()}
           </p>
           <input
             className="email"
             type="text"
             placeholder="이메일"
-            onChange={getEmail}
+            onChange={getSignupInfo}
+            name="email"
           />
           <p
             className={
-              regexEmail.test(email) === false ? 'eRedMsg' : 'eGreenMsg'
+              regexEmail.test(signupInfo.email) === false
+                ? 'eRedMsg'
+                : 'eGreenMsg'
             }
           >
             {waringEmail()}
@@ -157,14 +147,16 @@ function Signup() {
             type="text"
             placeholder="생년월일(YYYY.MM.DD)"
             maxLength="10"
-            onChange={getBirthday}
+            onChange={getSignupInfo}
+            name="birthday"
           />
           <input
             className="phoneNumber"
             maxLength="11"
             type="text"
             placeholder="휴대전화 ('-' 제외한 숫자만 입력해주세요)"
-            onChange={getPhoneNumber}
+            onChange={getSignupInfo}
+            name="phoneNumber"
           />
         </div>
         <div className="gender">

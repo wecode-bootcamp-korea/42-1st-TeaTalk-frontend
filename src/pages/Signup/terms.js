@@ -9,6 +9,12 @@ function Terms() {
   const [isTermsOfUseBox, setIsTermsOfUseBox] = useState(false);
   const [isPrivacyCollectionBox, setIsPrivacyCollectionBox] = useState(false);
   const [isUsePrivacyBox, setIsUsePrivacyBox] = useState(false);
+  // const [termsCehckbox, setTermsCehckbox] = useState({
+  //   isOfferPrivacyBox: false,
+  //   isTermsOfUseBox: false,
+  //   isPrivacyCollectionBox: false,
+  //   isUsePrivacyBox: false,
+  // });
 
   const allBtnEvent = () => {
     if (isCheckAll === false) {
@@ -57,6 +63,29 @@ function Terms() {
       setIsUsePrivacyBox(false);
     }
   };
+
+  // const checkBoxEventHandler = () => {
+  //   if (isOfferPrivacyBox === false) {
+  //     setIsOfferPrivacyBox(true);
+  //   } else {
+  //     setIsOfferPrivacyBox(false);
+  //   }
+  //   if (isTermsOfUseBox === false) {
+  //     setIsTermsOfUseBox(true);
+  //   } else {
+  //     setIsTermsOfUseBox(false);
+  //   }
+  //   if (isPrivacyCollectionBox === false) {
+  //     setIsPrivacyCollectionBox(true);
+  //   } else {
+  //     setIsPrivacyCollectionBox(false);
+  //   }
+  //   if (isUsePrivacyBox === false) {
+  //     setIsUsePrivacyBox(true);
+  //   } else {
+  //     setIsUsePrivacyBox(false);
+  //   }
+  // };
 
   // const checkBoxEventHandler = () => {
   //   if (isOfferPrivacyBox === false) {
