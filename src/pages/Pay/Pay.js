@@ -34,8 +34,8 @@ function Pay() {
     setrequest(e.target.value);
   };
 
-  const getAgree = e => {
-    setIsAgree(e.target.value);
+  const getAgree = () => {
+    setIsAgree(!isAgree);
   };
 
   //console.log(isAgree);
