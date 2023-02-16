@@ -1,0 +1,43 @@
+@import '../../../styles/variables';
+
+.navModal {
+  position: fixed;
+  z-index: 99;
+  top: 100px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+
+  .modalinner {
+    @include flex;
+    width: 100%;
+    height: 400px;
+    padding: 10px;
+    background-color: white;
+
+    .modalFirstSpace {
+      width: 15%;
+    }
+    .modalMenuList {
+      display: flex;
+      width: 30%;
+      height: 90%;
+      margin-top: 30px;
+
+      .modalWrap {
+        display: flex;
+        position: fixed;
+        font-size: 25px;
+
+        .navContents {
+          margin: 20px;
+        }
+      }
+    }
+
+    .modalEndSpace {
+      width: 35%;
+    }
+  }
+}
