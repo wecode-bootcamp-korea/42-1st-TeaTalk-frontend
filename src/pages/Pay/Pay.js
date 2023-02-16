@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Orderproduct from './Orderproduct';
 import './Pay.scss';
 
@@ -10,6 +10,22 @@ function Pay() {
   const [selected, setSelected] = useState('');
   const [request, setrequest] = useState('');
   const [isAgree, setIsAgree] = useState(false);
+  const [orderProduct, setOrderProduct] = useState([]);
+  // const [deliveryFee, setdeliveryFee] = useState(0);
+  // const [mileage, setMileage] = useState(0);
+  // const [mileageBalance, setMileageBalance] = useState(0);
+
+  // const getMileageBalance = e => {
+  //   setMileageBalance(e.target.value);
+  // };
+
+  // const getDeliveryFee = e => {
+  //   setMileage(e.target.value);
+  // };
+
+  // const getMileage = e => {
+  //   setdeliveryFee(e.target.value);
+  // };
 
   const getReceiverName = e => {
     setReceiver(e.target.value);
@@ -38,7 +54,36 @@ function Pay() {
     setIsAgree(!isAgree);
   };
 
-  //console.log(isAgree);
+  const getTotalPrice = x => {
+    console.log(x);
+  };
+
+  const getTotalAmount = x => {
+    console.log(x);
+  };
+
+  useEffect(() => {
+    fetch('/data/data.json', {
+      //fetch('http://10.58.52.197:8000/orders', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+    })
+      .then(res => res.json())
+      .then(data => {
+        setOrderProduct(data);
+      });
+  }, []);
+
+  const payMentBtn =
+    orderName.length > 0 &&
+    phoneNumber.length > 0 &&
+    receiver.length > 0 &&
+    receiverPhoneNum.length > 0 &&
+    //selected.length > 0 &&
+    request.length > 0 &&
+    isAgree === true;
 
   return (
     <div className="pay">
@@ -163,7 +208,15 @@ function Pay() {
                 <p>총 건</p>
               </div>
               <div className="orderProductWrap">
-                <Orderproduct />
+                {orderProduct.map(product => {
+                  return (
+                    <Orderproduct
+                      product={product}
+                      getTotalPrice={getTotalPrice}
+                      getTotalAmount={getTotalAmount}
+                    />
+                  );
+                })}
               </div>
             </div>
           </section>
@@ -210,15 +263,15 @@ function Pay() {
               </div>
               <div className="deliveryFee">
                 <p>배송비</p>
-                <p>0원</p>
+                <p>{orderProduct.deliveryFee}원</p>
               </div>
               <div className="mileage">
                 <p>보유 마일리지</p>
-                <p>0원</p>
+                <p>{orderProduct.mileage}원</p>
               </div>
               <div className="mileageBalance">
                 <p>결제후 마일리지</p>
-                <p>0원</p>
+                <p>{orderProduct.mileageBalance}원</p>
               </div>
               <div className="totalPrice">
                 <p>최종 결제 금액</p>
@@ -226,7 +279,13 @@ function Pay() {
               </div>
             </div>
             <div className="payBtn">
-              <button type="button">결제하기</button>
+              <button
+                className={payMentBtn ? 'turnOn' : 'turnOff'}
+                type="button"
+                disabled={payMentBtn ? false : true}
+              >
+                결제하기
+              </button>
             </div>
           </aside>
         </div>
