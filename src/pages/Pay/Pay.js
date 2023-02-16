@@ -11,6 +11,7 @@ function Pay() {
   const [request, setrequest] = useState('');
   const [isAgree, setIsAgree] = useState(false);
   const [orderProduct, setOrderProduct] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
   // const [deliveryFee, setdeliveryFee] = useState(0);
   // const [mileage, setMileage] = useState(0);
   // const [mileageBalance, setMileageBalance] = useState(0);
@@ -54,8 +55,9 @@ function Pay() {
     setIsAgree(!isAgree);
   };
 
-  const getTotalPrice = x => {
-    console.log(x);
+  const getTotalPrice = e => {
+    setTotalPrice(e);
+    console.log(e);
   };
 
   const getTotalAmount = x => {
@@ -259,23 +261,23 @@ function Pay() {
             <div className="totalPrice">
               <div className="productPrice">
                 <p>총 상품 금액</p>
-                <p>50,000원</p>
+                <p onChange={getTotalPrice}>{totalPrice}원</p>
               </div>
               <div className="deliveryFee">
                 <p>배송비</p>
-                <p>{orderProduct.deliveryFee}원</p>
+                <p>원</p>
               </div>
               <div className="mileage">
                 <p>보유 마일리지</p>
-                <p>{orderProduct.mileage}원</p>
+                <p>원</p>
               </div>
               <div className="mileageBalance">
                 <p>결제후 마일리지</p>
-                <p>{orderProduct.mileageBalance}원</p>
+                <p>원</p>
               </div>
               <div className="totalPrice">
                 <p>최종 결제 금액</p>
-                <p>50,000원</p>
+                <p>원</p>
               </div>
             </div>
             <div className="payBtn">
