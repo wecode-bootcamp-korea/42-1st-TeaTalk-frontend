@@ -47,8 +47,8 @@ function Slider() {
           </div>
         );
       })}
-      <BtnSlider moveslide={nextSlide} direction="next" />
-      <BtnSlider moveslide={prevSlide} direction="prev" />
+      <BtnSlider moveSlide={nextSlide} direction="next" />
+      <BtnSlider moveSlide={prevSlide} direction="prev" />
     </div>
   );
 }
