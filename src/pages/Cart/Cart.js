@@ -1,7 +1,7 @@
 import './Cart.scss';
 
 function Cart() {
-  return <div>Cart</div>;
+  return <button>red</button>;
 }
 
 export default Cart;
