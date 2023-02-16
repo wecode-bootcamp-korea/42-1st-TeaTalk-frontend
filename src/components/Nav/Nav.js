@@ -10,10 +10,10 @@ import './Nav.scss';
 function Nav() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isInfoOpen, setIsInfoOpen] = useState(false);
-  const [currentMenuId, setCurrentMenuId] = useState('');
+  const [currentMenuId, setCurrentMenuId] = useState(0);
 
   const navOnMouseLeave = () => {
-    setCurrentMenuId();
+    setCurrentMenuId(0);
   };
 
   const navOnMouseEnter = id => {
@@ -48,12 +48,13 @@ function Nav() {
             >
               <div className="navMenu">
                 <div className="navMenuTitle"> {title}</div>
-                {currentMenuId === id ? (
+
+                {currentMenuId === id && (
                   <NavModal
                     setCurrentMenuId={setCurrentMenuId}
                     currentMenuId={currentMenuId}
                   />
-                ) : null}
+                )}
               </div>
             </div>
           );
@@ -76,12 +77,10 @@ function Nav() {
         </div>
       </div>
       <div className="endHeader">
-        <div
-          className="endHeaderLogin"
-          onMouseOver={loginOnMouse}
-          onMouseLeave={loginOnMouse}
-        >
-          로그인
+        <div className="loginWrap" onMouseLeave={loginOnMouse}>
+          <div className="loginBtn" onMouseOver={loginOnMouse}>
+            로그인
+          </div>
           {isLoginOpen === true ? <Navlogin /> : null}
         </div>
       </div>

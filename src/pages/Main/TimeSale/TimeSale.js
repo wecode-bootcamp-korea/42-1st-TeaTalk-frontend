@@ -6,7 +6,7 @@ const DAY_MINUTE = 59;
 const DAY_SECOND = 59;
 const ORIGIN_PRICE_RATE = 100;
 
-export default function TimeSale({ timesale }) {
+export default function TimeSale({ title, price, discount, img }) {
   const [hour, setHour] = useState(DAY_HOUR - new Date().getHours());
   const [minute, setMinute] = useState(DAY_MINUTE - new Date().getMinutes());
   const [second, setSecond] = useState(DAY_SECOND - new Date().getSeconds());
@@ -38,20 +38,18 @@ export default function TimeSale({ timesale }) {
       </div>
 
       <div className="timeSaleImg">
-        <img src={timesale.img} />
+        <img src={img} />
       </div>
 
       <div className="timeSaleText">
-        <div className="timeSaleItem">{timesale.title}</div>
+        <div className="timeSaleItem">{title}</div>
         <div className="timeSaleFooter">
-          <div className="timeSaleDiscount">{timesale.discount}%</div>
-          <div className="timeSalePrice">
-            {Number(timesale.price).toLocaleString()}
-          </div>
+          <div className="timeSaleDiscount">{discount}%</div>
+          <div className="timeSalePrice">{Number(price).toLocaleString()}</div>
           <div className="timeSalseEventPrice">
             {(
-              timesale.price *
-              ((ORIGIN_PRICE_RATE - timesale.discount) / ORIGIN_PRICE_RATE)
+              price *
+              ((ORIGIN_PRICE_RATE - discount) / ORIGIN_PRICE_RATE)
             ).toLocaleString()}
             원
           </div>

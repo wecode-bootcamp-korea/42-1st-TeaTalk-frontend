@@ -15,13 +15,12 @@ function NavModal({ currentMenuId, setCurrentMenuId }) {
           {NAVBAR_LIST.map(({ id, category }) => {
             return (
               <div className="modalWrap" key={id}>
-                {id === currentMenuId
-                  ? category.map(({ id, list }) => (
-                      <div className="navContents" key={id}>
-                        {list}
-                      </div>
-                    ))
-                  : null}
+                {id === currentMenuId &&
+                  category.map(({ id, list }) => (
+                    <div className="navContents" key={id}>
+                      {list}
+                    </div>
+                  ))}
               </div>
             );
           })}

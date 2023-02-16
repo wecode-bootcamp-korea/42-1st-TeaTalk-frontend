@@ -25,9 +25,17 @@ function Main() {
 
       <div className="mainEvent">
         <div className="todaySaleBox">
-          {timeSale.map((result, i) => {
-            const timesale = timeSale[i];
-            return <TimeSale key={i} timesale={timesale} />;
+          {timeSale.map(({ title, discount, price, img, id }) => {
+            return (
+              <TimeSale
+                key={id}
+                title={title}
+                discount={discount}
+                img={img}
+                id={id}
+                price={price}
+              />
+            );
           })}
         </div>
         <div className="mainEventLeft">
