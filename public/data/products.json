@@ -1,0 +1,15 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "product_name": "홍차5",
+      "price": 17100,
+      "discount_price": "1900.00",
+      "title_image": "/images/image001.png",
+      "detail_image": "/images/image001.png",
+      "subcategory_name": "blackea",
+      "category_name": "blacktea",
+      "description": "즐겁고 행복한 티타임을 선사하는 달콤하고 향긋한 오설록만의 특별한 블렌디드 티 선물 세트"
+    }
+  ]
+}
