@@ -9,12 +9,21 @@ function Terms() {
   const [isTermsOfUseBox, setIsTermsOfUseBox] = useState(false);
   const [isPrivacyCollectionBox, setIsPrivacyCollectionBox] = useState(false);
   const [isUsePrivacyBox, setIsUsePrivacyBox] = useState(false);
-  // const [termsCehckbox, setTermsCehckbox] = useState({
+
+  //코드 수정중
+  // const [termsCheckbox, setTermsCehckbox] = useState({
   //   isOfferPrivacyBox: false,
   //   isTermsOfUseBox: false,
   //   isPrivacyCollectionBox: false,
   //   isUsePrivacyBox: false,
   // });
+
+  // const checkBoxEventHandler = () => {
+  //   setTermsCehckbox({ ...termsCheckbox, isOfferPrivacyBox: true });
+  //   setTermsCehckbox({ ...termsCheckbox, isTermsOfUseBox: true });
+  //   setTermsCehckbox({ ...termsCheckbox, isPrivacyCollectionBox: true });
+  //   setTermsCehckbox({ ...termsCheckbox, isUsePrivacyBox: true });
+  // };
 
   const allBtnEvent = () => {
     if (isCheckAll === false) {
@@ -63,49 +72,6 @@ function Terms() {
       setIsUsePrivacyBox(false);
     }
   };
-
-  // const checkBoxEventHandler = () => {
-  //   if (isOfferPrivacyBox === false) {
-  //     setIsOfferPrivacyBox(true);
-  //   } else {
-  //     setIsOfferPrivacyBox(false);
-  //   }
-  //   if (isTermsOfUseBox === false) {
-  //     setIsTermsOfUseBox(true);
-  //   } else {
-  //     setIsTermsOfUseBox(false);
-  //   }
-  //   if (isPrivacyCollectionBox === false) {
-  //     setIsPrivacyCollectionBox(true);
-  //   } else {
-  //     setIsPrivacyCollectionBox(false);
-  //   }
-  //   if (isUsePrivacyBox === false) {
-  //     setIsUsePrivacyBox(true);
-  //   } else {
-  //     setIsUsePrivacyBox(false);
-  //   }
-  // };
-
-  // const checkBoxEventHandler = () => {
-  //   if (isOfferPrivacyBox === false) {
-  //     setIsOfferPrivacyBox(true);
-  //   } else if (isOfferPrivacyBox === true) {
-  //     setIsOfferPrivacyBox(false);
-  //   } else if (isTermsOfUseBox === false) {
-  //     setIsTermsOfUseBox(true);
-  //   } else if (isTermsOfUseBox === true) {
-  //     setIsTermsOfUseBox(false);
-  //   } else if (isPrivacyCollectionBox === false) {
-  //     setIsPrivacyCollectionBox(true);
-  //   } else if (isPrivacyCollectionBox === true) {
-  //     setIsPrivacyCollectionBox(false);
-  //   } else if (isUsePrivacyBox === false) {
-  //     setIsUsePrivacyBox(true);
-  //   } else if (isUsePrivacyBox === true) {
-  //     setIsUsePrivacyBox(false);
-  //   }
-  // };
 
   useEffect(() => {
     if (
