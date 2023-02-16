@@ -7,9 +7,7 @@ function Productlist() {
   const [product, setProduct] = useState([]);
 
   useEffect(() => {
-    fetch(
-      'http://10.58.52.71:8000/products?categoryId=teashop&subCategoryId=blacktea&sort=price_desc'
-    )
+    fetch('http://10.58.52.55:8000/')
       // fetch('/data/productList.json')
       .then(response => response.json())
       .then(({ data }) => setProduct(data));

@@ -19,7 +19,7 @@ function MenuModal({ currentMenuId, setCurrentMenuId }) {
                       key={id}
                       onClick={() => {
                         navigate(
-                          `/products/?categoryId=${classname}&subCategoryId=${subclassname}`
+                          `/Productlist/?categoryId=${classname}&subCategoryId=${subclassname}`
                         );
                       }}
                     >
