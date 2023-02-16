@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Productlist from '../Productlist/Productlist';
 import { PURCHASE_BENEFIT } from './PURCHASE_BENEFIT';
-import './ProductDetail.scss';
+import './Productdetail.scss';
 
 const ProductDetail = () => {
   const [product, setProduct] = useState([]);
