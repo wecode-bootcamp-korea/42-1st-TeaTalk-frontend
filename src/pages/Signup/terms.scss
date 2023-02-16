@@ -1,0 +1,38 @@
+.termsCheckList {
+  display: flex;
+  flex-direction: column;
+  max-width: 520px;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 10px 35px 40px;
+  border: solid #e6e6e6 1px;
+  border-radius: 10px;
+  line-height: 2;
+
+  .allTermsAgree {
+    font-size: larger;
+    font-weight: 700;
+
+    input {
+      margin-right: 15px;
+      margin-bottom: 30px;
+    }
+  }
+  li {
+    font-weight: 500;
+  }
+  .checkboxWrap {
+    input {
+      margin-right: 15px;
+      margin-bottom: 10px;
+    }
+    span {
+      color: #969494;
+    }
+    .more {
+      margin-left: 10px;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
