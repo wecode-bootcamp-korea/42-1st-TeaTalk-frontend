@@ -36,8 +36,7 @@ const ProductDetail = () => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
-        Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNjc2NTMyMjI2fQ.WJTpZYrdgFHmPeuDpm10DRWc7MIsynddufcsek2IsPo',
+        Authorization: '',
       },
       body: JSON.stringify({
         productId: productId,
