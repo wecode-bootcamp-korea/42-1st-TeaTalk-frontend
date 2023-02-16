@@ -1,0 +1,72 @@
+@import '../../../styles/variables';
+
+.notice {
+  @include flex;
+  font-family: 'Gowun Dodum', sans-serif;
+
+  .mainNotice {
+    @include flex($justify: flex-start);
+    width: 1200px;
+    margin: 30px 20px;
+    padding: 14px 16px;
+    border-radius: 4px;
+    background-color: #f6f6f6;
+    color: #333;
+
+    .notice {
+      width: 10%;
+      margin-right: 12px;
+      color: #999;
+      font-size: 14px;
+    }
+
+    .noticeListInfo {
+      @include flex($justify: space-between);
+      width: 100%;
+      overflow: hidden;
+
+      .noticeList {
+        @include flex($align: flex-start, $justify: flex-start);
+        position: relative;
+        top: 0;
+        flex-direction: column;
+        width: 90%;
+        height: 18px;
+        animation: scroll 14s infinite;
+        font-size: 14px;
+        line-height: 19px;
+
+        @keyframes scroll {
+          18% {
+            top: 0px;
+          }
+          27% {
+            top: -19px;
+          }
+          45% {
+            top: -19px;
+          }
+          54% {
+            top: -38px;
+          }
+          72% {
+            top: -38px;
+          }
+          81% {
+            top: -57px;
+          }
+          99% {
+            top: -57px;
+          }
+          100% {
+            top: 0px;
+          }
+        }
+      }
+
+      .noticeInfo {
+        color: #999;
+      }
+    }
+  }
+}
