@@ -1,4 +1,6 @@
-.containerSlider {
+@import '../../../styles/variables';
+
+.slider {
   position: relative;
   height: 640px;
   overflow: hidden;
@@ -82,10 +84,8 @@
   }
 
   .btnSlide {
-    display: flex;
+    @include flex;
     position: absolute;
-    align-items: center;
-    justify-content: center;
     width: 60px;
     height: 60px;
     border: 1px solid transparent;

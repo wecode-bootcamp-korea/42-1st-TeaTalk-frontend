@@ -1,5 +1,4 @@
-@import '../../styles/variables';
-
+@import '../../../../styles/variables';
 .product {
   @include flex($justify: center, $align: center);
   flex-direction: column;

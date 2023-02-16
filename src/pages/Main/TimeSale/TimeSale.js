@@ -10,9 +10,9 @@ export default function TimeSale({ timesale }) {
   const [hour, setHour] = useState(DAY_HOUR - new Date().getHours());
   const [minute, setMinute] = useState(DAY_MINUTE - new Date().getMinutes());
   const [second, setSecond] = useState(DAY_SECOND - new Date().getSeconds());
-  const DIGIT_HOUR = hour < 10 ? '0' + hour : hour;
-  const DIGIT_MIN = minute < 10 ? '0' + minute : minute;
-  const DIGIT_SEC = second < 10 ? '0' + second : second;
+  const digitHour = hour < 10 ? '0' + hour : hour;
+  const digitMin = minute < 10 ? '0' + minute : minute;
+  const digitSec = second < 10 ? '0' + second : second;
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -32,7 +32,7 @@ export default function TimeSale({ timesale }) {
             <img className="timeImg" src={time} />
           </div>
           <div>
-            {DIGIT_HOUR}:{DIGIT_MIN}:{DIGIT_SEC}
+            {digitHour}:{digitMin}:{digitSec}
           </div>
         </div>
       </div>

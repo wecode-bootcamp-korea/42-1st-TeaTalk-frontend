@@ -1,41 +1,43 @@
 @import '../../../styles/variables';
 
 .navModal {
-  display: block;
   position: fixed;
   z-index: 99;
-  top: 80px;
+  top: 100px;
   right: 0;
   bottom: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.4);
 
   .modalinner {
-    display: flex;
+    @include flex;
     width: 100%;
     height: 400px;
     padding: 10px;
     background-color: white;
 
     .modalFirstSpace {
-      width: 25%;
+      width: 15%;
     }
+    .modalMenuList {
+      display: flex;
+      width: 30%;
+      height: 90%;
+      margin-top: 30px;
 
-    .modalImgSpace {
-      @include flex($justify: center, $align: center);
-      flex: 1;
+      .modalWrap {
+        display: flex;
+        position: fixed;
+        font-size: 25px;
 
-      .modalImg {
-        width: 60%;
-        height: 80%;
-        background-image: url('/images/greentea.JPG');
-        background-position: center;
-        background-size: cover;
+        .navContents {
+          margin: 20px;
+        }
       }
     }
 
-    .modalLastSpace {
-      flex: 1;
+    .modalEndSpace {
+      width: 35%;
     }
   }
 }

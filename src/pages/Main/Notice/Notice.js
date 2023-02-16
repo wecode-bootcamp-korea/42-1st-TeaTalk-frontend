@@ -4,8 +4,14 @@ import './Notice.scss';
 const Notice = () => {
   const noticeArr = [
     '💛 WECODE 42기 빠이팅 💛',
+    '💛 준현상 간바레 💛',
     '마이솔 내사랑을 받아줘요🙆🏻‍♂️ -찬이가-',
+    '❤️ WECODE 42기 빠이팅 ❤️',
     '42기 1차 프로젝트 고생하셨습니다👏🏻',
+    '🖤 WECODE 42기 빠이팅 🖤',
+    '💛 WECODE 42기 빠이팅 💛',
+    '❤️  WECODE 42기 빠이팅 ',
+    '💛 WECODE 42기 빠이팅 💛',
   ];
 
   return (

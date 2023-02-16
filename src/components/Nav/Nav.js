@@ -1,34 +1,30 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import NavModal from './NavModal/NavModal';
-import Navlogin from './NavModal/Navlogin';
-import Navinfo from './NavModal/Navinfo';
+import Navlogin from './NavModal/Navlogin/Navlogin';
+import NavInfo from './NavModal/Nabinfo/Navinfo';
 import cart from './icon/cart.svg';
 import info from './icon/info.svg';
 import './Nav.scss';
 
 function Nav() {
-  const [navlogin, setNavlogin] = useState(false);
-  const [navinfo, setNavinfo] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [isInfoOpen, setIsInfoOpen] = useState(false);
   const [currentMenuId, setCurrentMenuId] = useState('');
 
-  const navOnMouseEnter = () => {
-    setCurrentMenuId(NAVBAR_LIST[0].id);
-  };
   const navOnMouseLeave = () => {
     setCurrentMenuId();
   };
-  const infoOnMouseLeave = () => {
-    setNavinfo(false);
+
+  const navOnMouseEnter = id => {
+    setCurrentMenuId(id);
   };
-  const infoOnMouseEnter = () => {
-    setNavinfo(true);
+
+  const infoOnMouse = () => {
+    setIsInfoOpen(prev => !prev);
   };
-  const loginOnMouseLeave = () => {
-    setNavlogin(false);
-  };
-  const loginOnMouseOver = () => {
-    setNavlogin(true);
+  const loginOnMouse = () => {
+    setIsLoginOpen(prev => !prev);
   };
 
   return (
@@ -45,7 +41,9 @@ function Nav() {
             <div
               className="navMenuWrap"
               key={id}
-              onMouseEnter={navOnMouseEnter}
+              onMouseEnter={() => {
+                navOnMouseEnter(id);
+              }}
               onMouseLeave={navOnMouseLeave}
             >
               <div className="navMenu">
@@ -67,20 +65,24 @@ function Nav() {
             <img className="cartImg" src={cart} alt="cart" />
           </Link>
         </div>
-        <div className="infoWrap" onMouseLeave={infoOnMouseLeave}>
+        <div className="infoWrap" onMouseLeave={infoOnMouse}>
           <img
             className="infoImg"
             src={info}
             alt="info"
-            onMouseOver={infoOnMouseEnter}
+            onMouseOver={infoOnMouse}
           />
-          {navinfo === true ? <Navinfo /> : null}
+          {isInfoOpen === true ? <NavInfo /> : null}
         </div>
       </div>
-      <div className="endHeader" onMouseLeave={loginOnMouseLeave}>
-        <div className="endHeaderLogin" onMouseOver={loginOnMouseOver}>
+      <div className="endHeader">
+        <div
+          className="endHeaderLogin"
+          onMouseOver={loginOnMouse}
+          onMouseLeave={loginOnMouse}
+        >
           로그인
-          {navlogin === true ? <Navlogin /> : null}
+          {isLoginOpen === true ? <Navlogin /> : null}
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Product from '../../../../components/Product/Product';
-import './bestSlider.scss';
+import RecommendItem from '../RecoomendItem/RecommendItem';
+import './BestSlider.scss';
 
 const IMG_WIDTH = 212;
 
@@ -8,19 +8,20 @@ export default function BestSlider() {
   const [index, setIndex] = useState(0);
   const [transform, setTransform] = useState(0);
   const [itemList, setItemList] = useState([]);
+  const isReachedEnd = index === 3;
 
   useEffect(() => {
-    fetch('/data/productList.json')
+    fetch('/data/recommenditemdata.json')
       .then(response => response.json())
       .then(result => setItemList(result));
   }, []);
 
-  const increment = () => {
+  const nextSlde = () => {
     setIndex(index + 1);
     setTransform(previousTransform => previousTransform - IMG_WIDTH);
   };
 
-  const decrement = () => {
+  const prevSlide = () => {
     setIndex(index - 1);
     setTransform(previousTransform => previousTransform + IMG_WIDTH);
   };
@@ -28,7 +29,7 @@ export default function BestSlider() {
   return (
     <div className="bestSlider">
       <div className="sliderBox">
-        <button className="btn" disabled={index === 0} onClick={decrement}>
+        <button className="btn" disabled={index === 0} onClick={prevSlide}>
           {'<'}
         </button>
         <div className="carouselWrapper">
@@ -36,18 +37,22 @@ export default function BestSlider() {
             className="itemCtr"
             style={{ transform: `translateX(${transform}px)` }}
           >
-            {itemList.map((result, i) => {
-              const product = itemList[i];
+            {itemList.map(({ id, img, title, price }) => {
               return (
                 <div className="itemContent">
-                  <Product key={i} product={product} />
+                  <RecommendItem
+                    key={id}
+                    img={img}
+                    title={title}
+                    price={price}
+                  />
                 </div>
               );
             })}
           </div>
         </div>
-        <button className="btn" disabled={index === 2} onClick={increment}>
-          {'>'}
+        <button className="btn" disabled={isReachedEnd} onClick={nextSlde}>
+          &gt;
         </button>
       </div>
     </div>

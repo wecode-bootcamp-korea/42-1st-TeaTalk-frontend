@@ -1,5 +1,5 @@
 import React from 'react';
-import BestSlider from './Itemslider/bestSlider';
+import BestSlider from './BestSlider/BestSlider';
 import './mainRecommend.scss';
 
 function MainRecommend() {

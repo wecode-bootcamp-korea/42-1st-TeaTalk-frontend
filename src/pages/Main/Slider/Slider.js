@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import BtnSlider from './SlideButton';
+import BtnSlider from './BtnSlider';
 import './Slider.scss';
 
 function Slider() {
@@ -22,7 +22,7 @@ function Slider() {
   };
 
   return (
-    <div className="containerSlider">
+    <div className="slider">
       {DATA_SLIDER.map((obj, index) => {
         return (
           <div

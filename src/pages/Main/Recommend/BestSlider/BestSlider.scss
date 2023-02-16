@@ -1,8 +1,7 @@
+@import '../../../../styles/variables';
 .bestSlider {
-  display: flex;
+  @include flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
 
   .sliderBox {
     display: flex;
@@ -18,10 +17,8 @@
         transition: transform ease 1.5s;
 
         .itemContent {
-          display: flex;
+          @include flex;
           flex-shrink: 0;
-          align-items: center;
-          justify-content: center;
           width: 200px;
           margin-right: 6px;
           margin-left: 6px;
@@ -29,11 +26,11 @@
       }
     }
     .btn {
-      width: 40px;
-      height: 40px;
+      width: 50px;
+      height: 50px;
       border: none;
       opacity: 0.6;
-      background-color: none;
+      background-color: rgba(0, 0, 0, 0);
     }
   }
 }

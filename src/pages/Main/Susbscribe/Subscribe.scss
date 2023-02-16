@@ -5,7 +5,7 @@
   margin-bottom: 60px;
   font-family: 'Gowun Dodum', sans-serif;
 
-  .subscribe-main {
+  .subscribeMain {
     width: 1200px;
     margin-right: auto;
     margin-bottom: 40px;
@@ -18,32 +18,32 @@
       font-weight: 600;
     }
 
-    .subscribe-title-bottom {
+    .subscribeTitleBottom {
       margin-top: 10px;
       color: #999;
       font-size: 16px;
     }
   }
-  .subscribe-articles {
+  .subscribeArticles {
     @include flex($align: flex-end);
     width: 100%;
     overflow: hidden;
 
-    .subscribe-article {
+    .subscribeArticle {
       display: flex;
       position: relative;
       align-items: flex-end;
       margin: 0 10px;
 
-      &:hover .article-textbox {
+      &:hover .articleTextbox {
         display: none;
       }
 
-      &:hover .article-hover-box {
+      &:hover .articleHoverBox {
         transform: translateY(0px);
       }
 
-      .article-imgbox {
+      .articleImgbox {
         @include flex($align: flex-end);
         img {
           width: 386px;
@@ -51,7 +51,7 @@
         }
       }
 
-      .article-textbox {
+      .articleTextbox {
         position: absolute;
         top: 76%;
         flex-direction: column;
@@ -59,31 +59,31 @@
         padding: 0 30px;
         // border: solid 6px red;
 
-        .textbox-top {
+        .textboxTop {
           color: #fff;
           font-size: 22px;
           font-weight: bold;
           line-height: 26px;
         }
 
-        .textbox-bottom {
+        .textboxBottom {
           display: flex;
           align-items: center;
           margin-top: 20px;
           color: #fff;
 
-          .textbox-bottom-front {
+          .textboxBottomFront {
             margin-left: 5px;
             font-size: 13px;
           }
 
-          .textbox-bottom-price {
+          .textboxBottomPrice {
             margin-left: 5px;
             font-size: 22px;
             font-weight: 700;
           }
 
-          .textbox-bottom-tag {
+          .textboxBottomTag {
             display: block;
             width: 80px;
             height: 22px;
@@ -98,7 +98,7 @@
         }
       }
 
-      .article-hover-box {
+      .articleHoverBox {
         display: flex;
         position: absolute;
         z-index: 10;
@@ -110,7 +110,7 @@
         transition: 0.4s ease-in-out;
         background-color: rgba(0, 0, 0, 0.5);
 
-        .article-hover-textbox {
+        .articleHoverTextbox {
           position: absolute;
           top: 40%;
           left: 30px;
@@ -119,32 +119,32 @@
           padding-bottom: 25px;
           border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 
-          .hover-textbox-top {
+          .hoverTextboxTop {
             color: #fff;
             font-size: 22px;
             font-weight: bold;
             line-height: 26px;
           }
 
-          .hover-textbox-bottom {
+          .hoverTextboxBottom {
             display: flex;
             align-items: center;
             margin-top: 20px;
             color: #fff;
 
-            .hover-textbox-bottom-front {
+            .hoverTextboxBottomFront {
               margin-left: 5px;
               font-size: 13px;
             }
 
-            .hover-textbox-bottom-price {
+            .hoverTextboxBottomPrice {
               margin-right: 16px;
               margin-left: 5px;
               font-size: 22px;
               font-weight: 700;
             }
 
-            .hover-textbox-bottom-tag {
+            .hoverTextboxBottomTag {
               display: block;
               width: 80px;
               height: 22px;
@@ -198,7 +198,7 @@
     }
   }
 
-  .article-more {
+  .articleMore {
     margin-top: 40px;
     text-align: center;
 
