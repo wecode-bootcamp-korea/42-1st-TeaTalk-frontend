@@ -29,7 +29,7 @@ const ProductDetail = () => {
     }
     setCount(switchedValueToNumber);
   };
-  //장바구니 버튼 누르면, productproduct_id,qudntity 담아서 서버에 요청하는 fetch
+
   console.log(`http://10.58.52.55:8000/cart`);
   const submitCart = () => {
     fetch(`http://10.58.52.55:8000/cart`, {
@@ -52,12 +52,8 @@ const ProductDetail = () => {
           alert('다시 요청 해 주세요');
         }
       });
-    //if(백엔드 reponse조건에 따라서){
-    // navigate('/cart')}
   };
-  //mount 되면 데이터 받아오는 fetch
   useEffect(() => {
-    //${params}                     // 1 자리 부분은 to~ 변수부분이 있었음
     fetch(`http://10.58.52.55:8000/products/detail/1`)
       .then(response => response.json())
       .then(({ data }) => {
@@ -106,7 +102,6 @@ const ProductDetail = () => {
                 <h3 className="productDescription">{description}</h3>
                 <h2 className="productPrice">
                   {Number(productPrice).toLocaleString()}원
-                  {/* toLoscaleString   문자끼리 부딪혀서 난 에러 */}
                 </h2>
               </div>
               <div className="quantity">
