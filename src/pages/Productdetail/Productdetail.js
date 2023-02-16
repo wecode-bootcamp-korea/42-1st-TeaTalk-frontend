@@ -29,68 +29,89 @@ const ProductDetail = () => {
     }
     setCount(switchedValueToNumber);
   };
-  //장바구니 버튼 누르면, productId,qudntity 담아서 서버에 요청하는 fetch
+  //장바구니 버튼 누르면, productproduct_id,qudntity 담아서 서버에 요청하는 fetch
+  console.log(`http://10.58.52.55:8000/cart`);
   const submitCart = () => {
-    fetch(`http://127.0.01:8000/detail/${productId}`, {
-      method: 'GET',
+    fetch(`http://10.58.52.55:8000/cart`, {
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
+        Authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNjc2NTMyMjI2fQ.WJTpZYrdgFHmPeuDpm10DRWc7MIsynddufcsek2IsPo',
       },
       body: JSON.stringify({
-        productId,
+        productId: productId,
         quantity: count,
       }),
     })
       .then(response => response.json())
-      .then(data => console.log(data));
+      .then(data => {
+        if (data.message === '상품이 장바구니에 추가되었습니다.') {
+          navigate('/cart');
+        } else {
+          alert('다시 요청 해 주세요');
+        }
+      });
     //if(백엔드 reponse조건에 따라서){
     // navigate('/cart')}
   };
   //mount 되면 데이터 받아오는 fetch
   useEffect(() => {
-    fetch('/data/products.json')
+    //${params}                     // 1 자리 부분은 to~ 변수부분이 있었음
+    fetch(`http://10.58.52.55:8000/products/detail/1`)
       .then(response => response.json())
-      .then(data => setProduct(data.data));
+      .then(({ data }) => {
+        setProduct(data[0]);
+      });
   }, []);
 
   return (
     <div className="productDetail">
-      {product.map(productState => {
+      {[product].map(productState => {
         const {
-          id,
-          product_name,
-          price,
-          title_image,
-          subcategory_name,
-          category_name,
+          productId,
+          productName,
           description,
+          productPrice,
+          productDiscountPrice,
+          productMainImage,
+          subcategoryName,
+          categoryName,
+          images,
         } = productState;
         return (
-          <React.Fragment key={id}>
-            <div className="productInfoContainer">
-              <div className="productImage">
-                <img src={title_image} alt="" />
-              </div>
-              <div>
-                <ul className="benefit">
-                  {PURCHASE_BENEFIT.map(({ benefit, id }) => (
-                    <li key={id}>{benefit}</li>
-                  ))}
-                </ul>
+          <React.Fragment key={productId}>
+            <div className="productInfo">
+              <div className="productInfoContainer">
+                <div className="productImage">
+                  <img src={productMainImage} alt="productimage" />
+                </div>
+                <div className="thumb">
+                  <ul>
+                    {PURCHASE_BENEFIT.map(({ benefit, id }) => (
+                      <li className="benufit" key={id}>
+                        {benefit}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
             <div className="orderContainer">
               <div className="orderHead">
-                <p>
-                  {category_name} &gt; {subcategory_name}
+                <p className="category">
+                  {categoryName} &gt; {subcategoryName}
                 </p>
-                <h1>{product_name}</h1>
-                <h3>{description}</h3>
-                <h2 className="price">{price.toLocaleString()}원</h2>
+                <h1 className="productName">{productName}</h1>
+                <h3 className="productDescription">{description}</h3>
+                <h2 className="productPrice">
+                  {Number(productPrice).toLocaleString()}원
+                  {/* toLoscaleString   문자끼리 부딪혀서 난 에러 */}
+                </h2>
               </div>
               <div className="quantity">
                 <p>구매수량</p>
-                <div>
+                <div className="quantityBox">
                   <button onClick={decreaseQuantity}>-</button>
                   <input onChange={editQuantity} value={count} />
 
@@ -99,7 +120,7 @@ const ProductDetail = () => {
               </div>
               <div className="grandTotal">
                 <p>상품금액 합계</p>
-                <p>{(count * price).toLocaleString()}원</p>
+                <p>{(count * productPrice).toLocaleString()}원</p>
               </div>
               <div className="buttonWrapper">
                 <button className="moveCart" name="cart" onClick={submitCart}>
