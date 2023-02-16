@@ -1,3 +1,27 @@
 * {
   box-sizing: border-box;
 }
+
+body {
+  display: block;
+  color: #727272;
+  font-size: 1em;
+  line-height: 1.5;
+
+  div {
+    display: block;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: top;
+  }
+
+  a {
+    background-color: transparent;
+    color: #9d9d9d;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
