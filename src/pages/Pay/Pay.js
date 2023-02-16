@@ -11,7 +11,7 @@ function Pay() {
   const [request, setrequest] = useState('');
   const [isAgree, setIsAgree] = useState(false);
   const [orderProduct, setOrderProduct] = useState([]);
-  const [totalPrice, setTotalPrice] = useState(0);
+  //const [totalPrice, setTotalPrice] = useState(0);
   // const [deliveryFee, setdeliveryFee] = useState(0);
   // const [mileage, setMileage] = useState(0);
   // const [mileageBalance, setMileageBalance] = useState(0);
@@ -27,6 +27,12 @@ function Pay() {
   // const getMileage = e => {
   //   setdeliveryFee(e.target.value);
   // };
+
+  const totalPrice = orderProduct.productPrice.reduce(
+    (accumulator, currentNumber) => accumulator + currentNumber
+  );
+
+  console.log(orderProduct);
 
   const getReceiverName = e => {
     setReceiver(e.target.value);
@@ -55,14 +61,14 @@ function Pay() {
     setIsAgree(!isAgree);
   };
 
-  const getTotalPrice = e => {
-    setTotalPrice(e);
-    console.log(e);
-  };
+  // const getTotalPrice = e => {
+  //   setTotalPrice(e);
+  //   console.log(e);
+  // };
 
-  const getTotalAmount = x => {
-    console.log(x);
-  };
+  // const getTotalAmount = x => {
+  //   console.log(x);
+  // };
 
   useEffect(() => {
     fetch('/data/data.json', {
@@ -111,7 +117,7 @@ function Pay() {
               <p className="email">이메일</p>
               <div className="emailInputWrap">
                 <input type="text" />
-                <p className="Character">@</p>
+                <p className="character">@</p>
                 <select
                   className="select"
                   onChange={onChangeSelect}
@@ -207,17 +213,11 @@ function Pay() {
             <div className="orderWrap">
               <div className="title">
                 <p>주문상품</p>
-                <p>총 건</p>
+                <p>총 {orderProduct.length} 건</p>
               </div>
               <div className="orderProductWrap">
                 {orderProduct.map(product => {
-                  return (
-                    <Orderproduct
-                      product={product}
-                      getTotalPrice={getTotalPrice}
-                      getTotalAmount={getTotalAmount}
-                    />
-                  );
+                  return <Orderproduct key={product.id} product={product} />;
                 })}
               </div>
             </div>
@@ -261,7 +261,7 @@ function Pay() {
             <div className="totalPrice">
               <div className="productPrice">
                 <p>총 상품 금액</p>
-                <p onChange={getTotalPrice}>{totalPrice}원</p>
+                <p>원</p>
               </div>
               <div className="deliveryFee">
                 <p>배송비</p>

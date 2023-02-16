@@ -1,12 +1,6 @@
 import './Orderproduct.scss';
 
-export default function Orderproduct({
-  product,
-  getTotalPrice,
-  getTotalAmount,
-}) {
-  getTotalPrice(product.productPrice);
-  getTotalAmount(product.totalAmount);
+export default function Orderproduct({ product }) {
   return (
     <div className="orderProduct">
       <div className="productWrap">
