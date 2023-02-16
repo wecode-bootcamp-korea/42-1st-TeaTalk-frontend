@@ -1,11 +1,17 @@
 import './Cart.scss';
 
-const CartList = ({ productId, productName, productPrice }) => {
+const CartList = ({
+  productId,
+  productName,
+  productPrice,
+  productMainImage,
+}) => {
   return (
     <section className="cartProductList">
-      <p>{productId}</p>
+      <img width="200px" alt="productImg" src={productMainImage} />
       <p>{productName}</p>
       <p>{productPrice}</p>
+
       {/* <input
       // type="checkbox"
       // onChange={e => {
