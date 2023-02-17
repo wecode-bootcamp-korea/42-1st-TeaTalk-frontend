@@ -9,23 +9,24 @@ import Mypage from './pages/Mypage/Mypage';
 import Pay from './pages/Pay/Pay';
 import Productlist from './pages/Productlist/Productlist';
 import Signup from './pages/Signup/Signup';
-import Productdetail from './pages/Productdetail/Productdetail';
+import Container from './components/Container/Container';
+import ProductDetail from './pages/Productdetail/Productdetail';
 
 const Router = () => {
   return (
     <BrowserRouter>
-      <Nav />
       <Routes>
+        <Route element={<Container />}>
+          <Route path="/" element={<Main />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/mypage" element={<Mypage />} />
+          <Route path="/pay" element={<Pay />} />
+          <Route path="/productdetail" element={<ProductDetail />} />
+          <Route path="/productlist" element={<Productlist />} />
+        </Route>
         <Route path="/login" element={<Login />} />
-        <Route path="/" element={<Main />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/mypage" element={<Mypage />} />
-        <Route path="/pay" element={<Pay />} />
-        <Route path="/productdetail/:id" element={<Productdetail />} />
-        <Route path="/productlist" element={<Productlist />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
-      <Footer />
     </BrowserRouter>
   );
 };
