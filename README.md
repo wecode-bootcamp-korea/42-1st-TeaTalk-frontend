@@ -1,4 +1,4 @@
-![Logo1](https://user-images.githubusercontent.com/120013855/219602206-03b71612-8faf-4e8d-9b02-ddeff63b05f4.PNG)
+<img width="1411" alt="스크린샷 2023-02-17 오후 6 25 50" src="https://user-images.githubusercontent.com/120013855/219605500-b22672c5-2fe2-4c10-b7fc-ec3b95b75b74.png">
 
 
 
