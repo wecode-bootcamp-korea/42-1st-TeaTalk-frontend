@@ -25,6 +25,7 @@
 4. 구현기능
 
 	1). login, signup 페이지
+	
 	https://user-images.githubusercontent.com/120013855/219578399-60d4d35a-2859-430a-a6df-282d67122c3f.mov
 
 	- 정규식을 이용한 pw email 유효성 검사
@@ -33,12 +34,14 @@
 	- 약관 상세보기 모달창 구현
 	
 	2). nav
+	
 	https://user-images.githubusercontent.com/120013855/219579373-43234574-f4bb-46da-bc9c-427dfb071455.mov
 	
 	- 상수데이터를 활용하여 nav 구현
 	- 카테고리 & 서브카테고리 출력을 이용하여 이중 map함수 이용
 	
 	3)메인페이지 슬라이드, 아이템 슬라이드
+	
 	https://user-images.githubusercontent.com/120013855/219580135-909eed10-e7fe-4118-afaa-94e36860f652.mov
 	https://user-images.githubusercontent.com/120013855/219580195-80da2e92-16e0-498a-8972-384c8ec5d43a.mov
 
@@ -46,6 +49,7 @@
 
 
 	3). 메인페이지 타이머
+	
 	https://user-images.githubusercontent.com/120013855/219580447-ffb69ea6-73b3-4c9a-99b3-224f66ebed09.mov
 	
 	- 타이머 기능구현
