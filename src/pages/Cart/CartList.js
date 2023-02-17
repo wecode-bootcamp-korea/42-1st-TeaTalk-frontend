@@ -38,7 +38,7 @@ const CartList = ({
           <button onClick={increaseQuantity}>+</button>
         </div>
       </div>
-      <p>{productPrice}원</p>
+      <p>{Number(productPrice).toLocaleString()}원</p>
     </section>
   );
 };

@@ -80,7 +80,7 @@ export default function Cart() {
             <ul>
               <li>
                 <span>상품 금액</span>
-                <span>{product.productPrice}원</span>
+                <span>{Number(product.productPrice).toLocaleString()}원</span>
               </li>
               <li>
                 <span className="expectation">결제 예상 금액</span>
