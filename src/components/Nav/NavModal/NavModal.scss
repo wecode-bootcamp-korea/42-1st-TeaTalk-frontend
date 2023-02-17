@@ -12,18 +12,20 @@
   .modalinner {
     @include flex;
     width: 100%;
-    height: 400px;
+    height: 200px;
     padding: 10px;
     background-color: white;
 
     .modalFirstSpace {
-      width: 15%;
+      width: 20%;
+      // border: solid 2px black;
     }
     .modalMenuList {
       display: flex;
-      width: 30%;
+      width: 20%;
       height: 90%;
       margin-top: 30px;
+      // border: solid 2px black;
 
       .modalWrap {
         display: flex;
@@ -37,7 +39,8 @@
     }
 
     .modalEndSpace {
-      width: 35%;
+      width: 40%;
+      // border: solid 2px black;
     }
   }
 }

@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "productName": "프리미엄 티 컬렉션",
+    "productMainImage": "images/main/item.PNG",
+    "img2": "images/main/item2.jpg",
+    "productPrice": "28,000",
+    "discount_price": "28,000",
+    "category": "제품",
+    "subcategory": "티제품",
+    "discountprice": "28,000"
+  },
+  {
+    "id": 2,
+    "productName": "프리미엄 티 컬렉션",
+    "productMainImage": "images/main/item.PNG",
+    "img2": "images/main/item2.jpg",
+    "productPrice": "28,000",
+    "discount_price": "28,000",
+    "category": "제품",
+    "subcategory": "티제품",
+    "discountprice": "28,000"
+  },
+  {
+    "id": 3,
+    "productName": "프리미엄 티 컬렉션",
+    "productMainImage": "images/main/item.PNG",
+    "img2": "images/main/item2.jpg",
+    "productPrice": "28,000",
+    "discount_price": "28,000",
+    "category": "제품",
+    "subcategory": "티제품",
+    "discountprice": "28,000"
+  },
+  {
+    "id": 4,
+    "productName": "프리미엄 티 컬렉션",
+    "productMainImage": "images/main/item.PNG",
+    "img2": "images/main/item2.jpg",
+    "productPrice": "28,000",
+    "discount_price": "28,000",
+    "category": "제품",
+    "subcategory": "티제품",
+    "discountprice": "28,000"
+  },
+  {
+    "id": 5,
+    "productName": "프리미엄 티 컬렉션",
+    "productMainImage": "images/main/item.PNG",
+    "img2": "images/main/item2.jpg",
+    "productPrice": "28,000",
+    "discount_price": "28,000",
+    "category": "제품",
+    "subcategory": "티제품",
+    "discountprice": "28,000"
+  },
+  {
+    "id": 6,
+    "productName": "프리미엄 티 컬렉션",
+    "productMainImage": "images/main/item.PNG",
+    "img2": "images/main/item2.jpg",
+    "productPrice": "28,000",
+    "discount_price": "28,000",
+    "category": "제품",
+    "subcategory": "티제품",
+    "discountprice": "28,000"
+  },
+  {
+    "id": 7,
+    "productName": "프리미엄 티 컬렉션",
+    "productMainImage": "images/main/item.PNG",
+    "img2": "images/main/item2.jpg",
+    "productPrice": "28,000",
+    "discount_price": "28,000",
+    "category": "제품",
+    "subcategory": "티제품",
+    "discountprice": "28,000"
+  },
+  {
+    "id": 8,
+    "productName": "프리미엄 티 컬렉션",
+    "productMainImage": "images/main/item.PNG",
+    "img2": "images/main/item2.jpg",
+    "productPrice": "28,000",
+    "discount_price": "28,000",
+    "category": "제품",
+    "subcategory": "티제품",
+    "discountprice": "28,000"
+  },
+  {
+    "id": 9,
+    "productName": "프리미엄 티 컬렉션",
+    "productMainImage": "images/main/item.PNG",
+    "img2": "images/main/item2.jpg",
+    "productPrice": "28,000",
+    "discount_price": "28,000",
+    "category": "제품",
+    "subcategory": "티제품",
+    "discountprice": "28,000"
+  },
+  {
+    "id": 10,
+    "productName": "프리미엄 티 컬렉션",
+    "productMainImage": "images/main/item.PNG",
+    "img2": "images/main/item2.jpg",
+    "productPrice": "28,000",
+    "discount_price": "28,000",
+    "category": "제품",
+    "subcategory": "티제품",
+    "discountprice": "28,000"
+  },
+  {
+    "id": 11,
+    "productName": "프리미엄 티 컬렉션",
+    "productMainImage": "images/main/item.PNG",
+    "img2": "images/main/item2.jpg",
+    "productPrice": "28,000",
+    "discount_price": "28,000",
+    "category": "제품",
+    "subcategory": "티제품",
+    "discountprice": "28,000"
+  },
+  {
+    "id": 12,
+    "productName": "프리미엄 티 컬렉션",
+    "productMainImage": "images/main/item.PNG",
+    "img2": "images/main/item2.jpg",
+    "productPrice": "28,000",
+    "discount_price": "28,000",
+    "category": "제품",
+    "subcategory": "티제품",
+    "discountprice": "28,000"
+  }
+]

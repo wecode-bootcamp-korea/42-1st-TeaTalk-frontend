@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import RecommendItem from '../RecoomendItem/RecommendItem';
 import './BestSlider.scss';
 
-const IMG_WIDTH = 212;
+const IMG_WIDTH = 352;
 
 export default function BestSlider() {
   const [index, setIndex] = useState(0);
   const [transform, setTransform] = useState(0);
   const [itemList, setItemList] = useState([]);
-  const isReachedEnd = index === 3;
+  const isReachedEnd = index === 5;
 
   useEffect(() => {
     fetch('/data/recommenditemdata.json')

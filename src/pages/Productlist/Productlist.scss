@@ -1,0 +1,105 @@
+@import '../../styles/variables';
+
+.productList {
+  .background {
+    height: 600px;
+    margin-top: 100px;
+    background-color: antiquewhite;
+    background-image: url('../../../public/images/main/tea.jpg');
+    background-position: center;
+    background-size: cover;
+  }
+
+  .productWrap {
+    display: flex;
+    justify-content: center;
+
+    .aisde {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      width: 10%;
+      height: 100%;
+
+      .asideHeader {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 80px;
+        font-size: 25px;
+      }
+    }
+    .productContainer {
+      width: 80%;
+
+      .sortTab {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        width: 90%;
+        height: 80px;
+        margin: auto;
+        border-bottom: solid 2px #dddbd8;
+        font-size: 30px;
+
+        .subCategory {
+          padding-bottom: 10px;
+        }
+        .sortBtn {
+          button {
+            width: 130px;
+            margin-right: 20px;
+            padding-bottom: 10px;
+            border: none;
+            background-color: transparent;
+            font-size: 25px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .filterTab {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 90%;
+      height: 80px;
+      margin: auto;
+      font-size: 20px;
+
+      .filterBtn {
+        button {
+          width: 130px;
+          height: 50px;
+          margin: 20px;
+          border: none;
+          border-radius: 50px;
+          background-color: #dddbd8;
+          color: rgb(160, 153, 153);
+          font-size: 25px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .itemContainer {
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      width: 90%;
+      margin: 30px auto;
+      padding: 10px;
+      overflow: hidden;
+      column-gap: 10px;
+
+      .itemBox {
+        border-right: solid 1px rgb(206, 201, 201);
+      }
+    }
+
+    .pageNation {
+      width: 90%;
+      height: 50px;
+      margin: auto;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+// @import '../../../../styles/variables';
+
+.menuTab {
+  width: 80%;
+  height: 100%;
+  .menuArticle {
+    display: flex;
+  }
+
+  .menuBox {
+    display: flex;
+    position: relative;
+    align-items: flex-end;
+    width: 100%;
+    // border: solid 2px black;
+  }
+
+  .menuWrap {
+    display: flex;
+    width: 100%;
+    height: 80px;
+    // border: solid 2px black;
+
+    .categoryTitle {
+      padding: auto;
+      // border: solid 2px black;
+      font-size: 25px;
+      line-height: 3;
+    }
+  }
+}

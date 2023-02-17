@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Productlist from '../Productlist/Productlist';
 import { PURCHASE_BENEFIT } from './PURCHASE_BENEFIT';
-import './ProductDetail.scss';
+import './Productdetail.scss';
 
 const ProductDetail = () => {
   const [product, setProduct] = useState([]);
@@ -53,7 +53,7 @@ const ProductDetail = () => {
       });
   };
   useEffect(() => {
-    fetch(`http://10.58.52.55:8000/products/detail/1`)
+    fetch(`http://10.58.52.55:8000/products/detail/${productId}`)
       .then(response => response.json())
       .then(({ data }) => {
         setProduct(data[0]);
@@ -76,55 +76,56 @@ const ProductDetail = () => {
         } = productState;
         return (
           <React.Fragment key={productId}>
-            <div className="productInfo">
-              <div className="productInfoContainer">
-                <div className="productImage">
-                  <img src={productMainImage} alt="productimage" />
+            <div className="wrap">
+              <div className="productInfo">
+                <div className="productInfoContainer">
+                  <div className="productImage">
+                    <img src={productMainImage} alt="productimage" />
+                  </div>
                 </div>
                 <div className="thumb">
-                  <ul>
-                    {PURCHASE_BENEFIT.map(({ benefit, id }) => (
-                      <li className="benufit" key={id}>
-                        {benefit}
-                      </li>
-                    ))}
-                  </ul>
+                  {PURCHASE_BENEFIT.map(({ benefit, id }) => (
+                    <div className="benefit" key={id}>
+                      □ {benefit}
+                    </div>
+                  ))}
                 </div>
               </div>
-            </div>
-            <div className="orderContainer">
-              <div className="orderHead">
-                <p className="category">
-                  {categoryName} &gt; {subcategoryName}
-                </p>
-                <h1 className="productName">{productName}</h1>
-                <h3 className="productDescription">{description}</h3>
-                <h2 className="productPrice">
-                  {Number(productPrice).toLocaleString()}원
-                </h2>
-              </div>
-              <div className="quantity">
-                <p>구매수량</p>
-                <div className="quantityBox">
-                  <button onClick={decreaseQuantity}>-</button>
-                  <input onChange={editQuantity} value={count} />
 
-                  <button onClick={increaseQuantity}>+</button>
+              <div className="orderContainer">
+                <div className="orderHead">
+                  <p className="category">
+                    {categoryName} &gt; {subcategoryName}
+                  </p>
+                  <h1 className="productName">{productName}</h1>
+                  <h3 className="productDescription">{description}</h3>
+                  <h2 className="productPrice">
+                    {Number(productPrice).toLocaleString()}원
+                  </h2>
                 </div>
+                <div className="quantity">
+                  <p>구매수량</p>
+                  <div className="quantityBox">
+                    <button onClick={decreaseQuantity}>-</button>
+                    <input onChange={editQuantity} value={count} />
+
+                    <button onClick={increaseQuantity}>+</button>
+                  </div>
+                </div>
+                <div className="grandTotal">
+                  <p>상품금액 합계</p>
+                  <p>{(count * productPrice).toLocaleString()}원</p>
+                </div>
+                <div className="buttonWrapper">
+                  <button className="moveCart" name="cart" onClick={submitCart}>
+                    장바구니
+                  </button>
+                  <button className="movePayment" name="purchase">
+                    바로구매
+                  </button>
+                </div>
+                <div />
               </div>
-              <div className="grandTotal">
-                <p>상품금액 합계</p>
-                <p>{(count * productPrice).toLocaleString()}원</p>
-              </div>
-              <div className="buttonWrapper">
-                <button className="moveCart" name="cart" onClick={submitCart}>
-                  장바구니
-                </button>
-                <button className="movePayment" name="purchase">
-                  바로구매
-                </button>
-              </div>
-              <div />
             </div>
           </React.Fragment>
         );

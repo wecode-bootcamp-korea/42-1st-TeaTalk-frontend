@@ -30,7 +30,7 @@ function Nav() {
   return (
     <div className="nav">
       <div className="startHeader">
-        <Link to="/Main">
+        <Link to="/">
           <img className="logo" src="images/nav/Logo.PNG" alt="Logo" />
         </Link>
       </div>
@@ -47,8 +47,9 @@ function Nav() {
               onMouseLeave={navOnMouseLeave}
             >
               <div className="navMenu">
-                <div className="navMenuTitle"> {title}</div>
-
+                <Link to="/productlist">
+                  <div className="navMenuTitle"> {title}</div>
+                </Link>
                 {currentMenuId === id && (
                   <NavModal
                     setCurrentMenuId={setCurrentMenuId}
@@ -111,6 +112,11 @@ export const NAVBAR_LIST = [
         list: '티세트',
         subclassname: 'teaset',
       },
+      {
+        id: 4,
+        list: '라이프스타일',
+        subclassname: 'teaset',
+      },
     ],
   },
   {
@@ -125,7 +131,12 @@ export const NAVBAR_LIST = [
       },
       {
         id: 2,
-        list: '빵',
+        list: '베이커리',
+        subclassname: 'bread',
+      },
+      {
+        id: 3,
+        list: '아이스크림',
         subclassname: 'bread',
       },
     ],
@@ -138,6 +149,11 @@ export const NAVBAR_LIST = [
       {
         id: 1,
         list: '텀블러',
+        subclassname: 'tumblr',
+      },
+      {
+        id: 2,
+        list: '티포트 세트',
         subclassname: 'tumblr',
       },
     ],

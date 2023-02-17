@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Terms from './Terms';
+import Terms from './terms';
 import './Signup.scss';
 
 function Signup() {
