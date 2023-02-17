@@ -1,0 +1,86 @@
+@import '../../styles/variables';
+
+.nav {
+  display: flex;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100px;
+
+  background-color: white;
+  color: black;
+
+  .startHeader {
+    width: 20%;
+    height: 50px;
+
+    .logo {
+      width: 80%;
+    }
+  }
+
+  .secondHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 20%;
+    height: 100%;
+
+    .navMenu {
+      height: 100px;
+      padding-top: 40px;
+
+      .navMenuTitle {
+        font-size: 25px;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .thirdHeader {
+    @include flex($justify: right, $align: center);
+    width: 40%;
+    height: 100%;
+
+    .cartWrap {
+      @include flex($align: center);
+      height: 100%;
+
+      .cartImg {
+        height: 30px;
+        margin: 20px;
+      }
+    }
+    .infoWrap {
+      display: flex;
+      align-items: center;
+      height: 100%;
+
+      .infoImg {
+        height: 30px;
+        margin: 20px;
+      }
+    }
+  }
+  .endHeader {
+    @include flex($justify: center, $align: center);
+    height: 100%;
+    margin-left: 20px;
+
+    .loginWrap {
+      display: flex;
+      align-items: center;
+      width: 60px;
+      height: 100%;
+      margin: auto;
+
+      .loginBtn {
+        width: auto;
+        font-size: 20px;
+      }
+    }
+  }
+}

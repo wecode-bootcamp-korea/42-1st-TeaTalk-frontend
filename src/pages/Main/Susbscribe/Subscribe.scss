@@ -1,0 +1,218 @@
+@import '../../../styles/variables';
+.subscribe {
+  width: 100%;
+  margin-top: 80px;
+  margin-bottom: 60px;
+  font-family: 'Gowun Dodum', sans-serif;
+
+  .subscribeMain {
+    width: 1200px;
+    margin-right: auto;
+    margin-bottom: 40px;
+    margin-left: auto;
+    padding: 0 10px;
+
+    h3 {
+      color: #333;
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    .subscribeTitleBottom {
+      margin-top: 10px;
+      color: #999;
+      font-size: 16px;
+    }
+  }
+  .subscribeArticles {
+    @include flex($align: flex-end);
+    width: 100%;
+    overflow: hidden;
+
+    .subscribeArticle {
+      display: flex;
+      position: relative;
+      align-items: flex-end;
+      margin: 0 10px;
+
+      &:hover .articleTextbox {
+        display: none;
+      }
+
+      &:hover .articleHoverBox {
+        transform: translateY(0px);
+      }
+
+      .articleImgbox {
+        @include flex($align: flex-end);
+        img {
+          width: 386px;
+          height: 480px;
+        }
+      }
+
+      .articleTextbox {
+        position: absolute;
+        top: 76%;
+        flex-direction: column;
+        width: 100%;
+        padding: 0 30px;
+        // border: solid 6px red;
+
+        .textboxTop {
+          color: #fff;
+          font-size: 22px;
+          font-weight: bold;
+          line-height: 26px;
+        }
+
+        .textboxBottom {
+          display: flex;
+          align-items: center;
+          margin-top: 20px;
+          color: #fff;
+
+          .textboxBottomFront {
+            margin-left: 5px;
+            font-size: 13px;
+          }
+
+          .textboxBottomPrice {
+            margin-left: 5px;
+            font-size: 22px;
+            font-weight: 700;
+          }
+
+          .textboxBottomTag {
+            display: block;
+            width: 80px;
+            height: 22px;
+            margin-top: 0;
+            margin-left: 16px;
+            border-radius: 2px;
+            background-color: #a1af1b;
+            font-size: 13px;
+            line-height: 22px;
+            text-align: center;
+          }
+        }
+      }
+
+      .articleHoverBox {
+        display: flex;
+        position: absolute;
+        z-index: 10;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        padding: 0 30px 40px;
+        transform: translateY(500px);
+        transition: 0.4s ease-in-out;
+        background-color: rgba(0, 0, 0, 0.5);
+
+        .articleHoverTextbox {
+          position: absolute;
+          top: 40%;
+          left: 30px;
+          flex-direction: column;
+          width: 85%;
+          padding-bottom: 25px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+
+          .hoverTextboxTop {
+            color: #fff;
+            font-size: 22px;
+            font-weight: bold;
+            line-height: 26px;
+          }
+
+          .hoverTextboxBottom {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            color: #fff;
+
+            .hoverTextboxBottomFront {
+              margin-left: 5px;
+              font-size: 13px;
+            }
+
+            .hoverTextboxBottomPrice {
+              margin-right: 16px;
+              margin-left: 5px;
+              font-size: 22px;
+              font-weight: 700;
+            }
+
+            .hoverTextboxBottomTag {
+              display: block;
+              width: 80px;
+              height: 22px;
+              margin-top: 0;
+              border-radius: 2px;
+              background-color: #a1af1b;
+              font-size: 13px;
+              line-height: 1.5;
+              text-align: center;
+            }
+          }
+        }
+
+        p {
+          @include flex;
+          position: absolute;
+          top: 65%;
+          color: #fff;
+          font-size: 16px;
+          line-height: 1.5;
+          word-break: keep-all;
+        }
+
+        ul {
+          display: flex;
+          position: absolute;
+          top: 85%;
+          flex-direction: column;
+          justify-content: center;
+          color: #fff;
+          line-height: 1.5;
+
+          li {
+            &::before {
+              content: '';
+              display: inline-block;
+              width: 4px;
+              height: 4px;
+              margin-right: 8px;
+              border-radius: 100%;
+              background-color: rgba(255, 255, 255, 0.7);
+              vertical-align: middle;
+            }
+          }
+
+          span {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+
+  .articleMore {
+    margin-top: 40px;
+    text-align: center;
+
+    button {
+      width: auto;
+      height: 48px;
+      padding: 0 60px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background-color: #fff;
+      color: #666;
+      font-size: 15px;
+      line-height: 48px;
+      text-align: center;
+    }
+  }
+}

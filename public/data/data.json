@@ -1,15 +1,42 @@
-{
-  "data": [
-    {
-      "id": 1,
-      "product_name": "홍차5",
-      "price": 17100,
-      "discount_price": "1900.00",
-      "title_image": "/images/image001.png",
-      "detail_image": "/images/image001.png",
-      "subcategory_name": "blackea",
-      "category_name": "blacktea",
-      "description": "즐겁고 행복한 티타임을 선사하는 달콤하고 향긋한 오설록만의 특별한 블렌디드 티 선물 세트"
-    }
-  ]
-}
+[
+  {
+    "id": 1,
+    "productName": "상품1",
+    "productImg": "images/productList/IMG_8576.PNG",
+    "productPrice": 22000,
+    "deliveryFee": 2500,
+    "totalAmount": 2
+  },
+  {
+    "id": 2,
+    "productName": "상품2",
+    "productImg": "images/productList/IMG_8576.PNG",
+    "productPrice": 25000,
+    "deliveryFee": 2500,
+    "totalAmount": 3
+  },
+  {
+    "id": 3,
+    "productName": "상품3",
+    "productImg": "images/productList/IMG_8576.PNG",
+    "productPrice": 45000,
+    "deliveryFee": 2500,
+    "totalAmount": 6
+  },
+  {
+    "id": 4,
+    "productName": "상품4",
+    "productImg": "images/productList/IMG_8576.PNG",
+    "productPrice": 15000,
+    "deliveryFee": 2500,
+    "totalAmount": 1
+  },
+  {
+    "id": 5,
+    "productName": "상품5",
+    "productImg": "images/productList/IMG_8576.PNG",
+    "productPrice": 95000,
+    "deliveryFee": 2500,
+    "totalAmount": 2
+  }
+]
