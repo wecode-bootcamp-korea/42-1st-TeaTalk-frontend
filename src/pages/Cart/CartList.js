@@ -1,10 +1,12 @@
-import './Cart.scss';
+import './CartList.scss';
 
 const CartList = ({
   productId,
   productName,
   productPrice,
   productMainImage,
+  count,
+  setCount,
 }) => {
   const decreaseQuantity = () => {
     if (count === 1) return;
@@ -29,15 +31,14 @@ const CartList = ({
     <section className="cartProductList">
       <img width="200px" alt="productImg" src={productMainImage} />
       <p>{productName}</p>
-      <p>{productPrice}</p>
       <div className="quantity">
-        <p>구매수량</p>
         <div className="quantityBox">
           <button onClick={decreaseQuantity}>-</button>
           <input onChange={editQuantity} value={count} />
           <button onClick={increaseQuantity}>+</button>
         </div>
       </div>
+      <p>{productPrice}원</p>
     </section>
   );
 };

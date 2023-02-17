@@ -1,0 +1,28 @@
+.cartProductList {
+  display: flex;
+  padding: 80px;
+  img {
+    margin-right: 30px;
+  }
+  p {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .quantity {
+    display: flex;
+    align-items: center;
+    .quantityBox {
+      margin-right: 30px;
+      margin-left: 30px;
+      button {
+        border: none;
+        background-color: white;
+      }
+      input {
+        border: none;
+        text-align: center;
+      }
+    }
+  }
+}
