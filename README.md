@@ -1,3 +1,7 @@
+![Logo1](https://user-images.githubusercontent.com/120013855/219602206-03b71612-8faf-4e8d-9b02-ddeff63b05f4.PNG)
+
+
+
 # Project : Tea Talk
 
 - 팀명 : Tea Talk
