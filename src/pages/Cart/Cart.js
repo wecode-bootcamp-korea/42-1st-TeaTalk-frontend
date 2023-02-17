@@ -24,7 +24,7 @@ export default function Cart() {
       .then(response => response.json())
       .then(data => {
         if (data.message === '상품이 장바구니에 추가되었습니다.') {
-          navigate('/cart');
+          navigate('/pay');
         } else {
           alert('다시 요청 해 주세요');
         }
@@ -72,7 +72,6 @@ export default function Cart() {
             );
           })}{' '}
           <div className="orderContainer">
-            <button className="pickOrder">선택상품 주문</button>
             <button className="allOrder" onClick={submitCart}>
               전체상품 주문하기
             </button>
@@ -92,7 +91,7 @@ export default function Cart() {
               <li>
                 <div className="totalOrder">
                   <span>
-                    {(count * product.productPrice).toLocaleString()}원 주문하기
+                    {(count * product.productPrice).toLocaleString()}원
                   </span>
                 </div>
               </li>
