@@ -24,7 +24,7 @@ function Productlist() {
 
         <div className="productContainer">
           <div className="sortTab">
-            <div className="subCategory">subCategory</div>
+            <div className="subCategory">제품 리스트</div>
             <div className="sortBtn">
               <button>신상품순</button>
               <button>높은 가격순</button>
@@ -42,10 +42,10 @@ function Productlist() {
           </div>
 
           <div className="itemContainer">
-            {product.map((result, id) => {
+            {product.map(product => {
               return (
                 <div className="itemBox">
-                  <Product key={id} product={result} />;
+                  <Product key={product.productId} product={product} />;
                 </div>
               );
             })}

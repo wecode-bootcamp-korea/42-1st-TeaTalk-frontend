@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import './Terms.scss';
+import './terms.scss';
 import Detailmodal from './Detailmodal';
 
 function Terms() {
