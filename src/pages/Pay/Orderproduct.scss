@@ -1,0 +1,22 @@
+.orderProduct {
+  .productWrap {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 40px;
+
+    .leftSection {
+      display: flex;
+      img {
+        width: 200px;
+        height: 200px;
+      }
+      p {
+        padding-top: 80px;
+      }
+    }
+    .priceWrap {
+      display: flex;
+      padding-top: 80px;
+    }
+  }
+}
