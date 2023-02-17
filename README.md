@@ -43,6 +43,7 @@
 	3)메인페이지 슬라이드, 아이템 슬라이드
 	
 	https://user-images.githubusercontent.com/120013855/219580135-909eed10-e7fe-4118-afaa-94e36860f652.mov
+	
 	https://user-images.githubusercontent.com/120013855/219580195-80da2e92-16e0-498a-8972-384c8ec5d43a.mov
 
 	- 라이브러리를 사용하지 않고 useState를 활용한 슬라이드 구현
