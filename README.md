@@ -17,8 +17,8 @@
 	- login, signup, footer, payment (이종혁)
         
 	- cart, productdetail(방서빈)
-	
-	*백엔드 github link(https://github.com/wecode-bootcamp-korea/42-1st-TeaTalk-backend.git)
+
+	- [백엔드 github 링크](https://github.com/wecode-bootcamp-korea/42-1st-TeaTalk-backend.git)
 	
 3. 적용기술
 	- React.js, sass, figma, HTML, JavaScript
