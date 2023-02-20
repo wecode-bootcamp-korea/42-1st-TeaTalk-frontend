@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Link, useParams, useNavigate } from 'react-router-dom';
-import CartList from './CartList';
-import { useEffect, useState } from 'react';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import CartList from './CartList';
 import './Cart.scss';
+
 export default function Cart() {
   const [product, setProduct] = useState([]);
   const [count, setCount] = useState(1);
@@ -47,17 +45,8 @@ export default function Cart() {
             <h1>장바구니</h1>
           </header>
           {[product].map(productState => {
-            const {
-              productId,
-              productName,
-              // description,
-              productPrice,
-              // productDiscountPrice,
-              productMainImage,
-              // subcategoryName,
-              // categoryName,
-              // images,
-            } = productState;
+            const { productId, productName, productPrice, productMainImage } =
+              productState;
             return (
               <CartList
                 key={productId}

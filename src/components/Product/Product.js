@@ -6,7 +6,11 @@ function Product({ product }) {
     <div className="product" key={product.productId} price={product.price}>
       <Link key={product.productId} to={`/productdetail/${product.productId}`}>
         <div className="productImgBox">
-          <img className="productImg" src={product.productMainImage} />
+          <img
+            className="productImg"
+            src={product.productMainImage}
+            alt="productImg"
+          />
         </div>
         <div className="productInfo">
           <div className="productTitle">{product.productName}</div>

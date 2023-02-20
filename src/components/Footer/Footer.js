@@ -12,9 +12,9 @@ function Footer() {
     <div className="footer">
       <div className="footerTop">
         <button onClick={goToLogin}>로그인</button>
-        <img src="images/footer/tiktok.png" />
-        <img src="images/footer/youtube.png" />
-        <img src="images/footer/instagram.png" />
+        <img src="images/footer/tiktok.png" alt="tiktok" />
+        <img src="images/footer/youtube.png" alt="youtube" />
+        <img src="images/footer/instagram.png" alt="instagram" />
       </div>
       <div className="contactInfo">
         <div className="customerService">
@@ -24,14 +24,14 @@ function Footer() {
         </div>
         <div className="order">
           <p>특판, 대량구매 문의</p>
-          <a href="">as13ljh@ghlgmail.com</a>
+          <Link to="/">as13ljh@ghlgmail.com</Link>
           <p>카카오톡ID : TeaTalkmall</p>
           <p>평일 09:30 - 17:00 (점심 11:30 - 13:00)</p>
         </div>
         <div className="imgWrap">
           <div className="linkWrap">
             {FOOTER_IMGLINK_LIST.map(info => {
-              return <img key={info.id} src={info.src} />;
+              return <img key={info.id} src={info.src} alt="infoimg" />;
             })}
           </div>
           <div className="textWrap">

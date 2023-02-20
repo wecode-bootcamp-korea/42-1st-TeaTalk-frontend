@@ -1,16 +1,14 @@
 @import '../../../../styles/variables';
+
 .bestSlider {
   @include flex;
   flex-direction: column;
   height: 100%;
-  // border: solid 1px black;
 
   .sliderBox {
     display: flex;
     align-items: center;
-    // width: 100%;
     height: 100%;
-    // border: solid 3px black;
 
     .carouselWrapper {
       width: 1056px;

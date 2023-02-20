@@ -41,15 +41,14 @@ function Productlist() {
           </div>
 
           <div className="itemContainer">
-            {product.map(product => {
+            {product.map((product, productId) => {
               return (
-                <div className="itemBox">
-                  <Product key={product.productId} product={product} />
-                </div>
+                // <div className="itemBox">
+                <Product key={productId} product={product} />
+                // </div>
               );
             })}
           </div>
-          {/* <div className="pageNation">pagenation</div> */}
         </div>
       </div>
     </div>

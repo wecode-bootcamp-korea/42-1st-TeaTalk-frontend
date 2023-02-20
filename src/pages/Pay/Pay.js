@@ -28,11 +28,11 @@ function Pay() {
   //   setdeliveryFee(e.target.value);
   // };
 
-  const totalPrice = orderProduct.productPrice.reduce(
-    (accumulator, currentNumber) => accumulator + currentNumber
-  );
+  // const totalPrice = orderProduct.productPrice.reduce(
+  //   (accumulator, currentNumber) => accumulator + currentNumber
+  // );
 
-  console.log(orderProduct);
+  // console.log(orderProduct);
 
   const getReceiverName = e => {
     setReceiver(e.target.value);
