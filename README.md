@@ -18,6 +18,8 @@
         
 	- cart, productdetail(방서빈)
 	
+	*백엔드 github link(https://github.com/wecode-bootcamp-korea/42-1st-TeaTalk-backend.git)
+	
 3. 적용기술
 	- React.js, sass, figma, HTML, JavaScript
 	- 협업 및 일정관리 : Git, GitHub, Slack, Trello, Notion
