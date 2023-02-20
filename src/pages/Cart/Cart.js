@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import CartList from './CartList';
+import { useEffect, useState } from 'react';
+import { Link, useParams, useNavigate } from 'react-router-dom';
+import CartList from './CartList';
 import './Cart.scss';
 export default function Cart() {
   const [product, setProduct] = useState([]);
