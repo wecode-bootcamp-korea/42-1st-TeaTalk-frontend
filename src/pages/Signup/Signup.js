@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Terms from './terms';
+import { Link, useNavigate } from 'react-router-dom';
+import Terms from './Terms';
 import './Signup.scss';
 
 function Signup() {
@@ -170,9 +170,9 @@ function Signup() {
       </div>
       <Terms />
       <span className="btnWarp">
-        <button className="exitSignup" onClick={goToMain}>
-          다음에 하기
-        </button>
+        <Link to="/">
+          <button className="exitSignup">다음에 하기</button>
+        </Link>
         <button
           className={isDisabledJoin ? 'button' : 'disabledBtn'}
           disabled={isDisabledJoin ? false : true}

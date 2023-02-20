@@ -67,11 +67,9 @@ const ProductDetail = () => {
           productName,
           description,
           productPrice,
-          productDiscountPrice,
           productMainImage,
           subcategoryName,
           categoryName,
-          images,
         } = productState;
         return (
           <React.Fragment key={productId}>
