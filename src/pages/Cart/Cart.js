@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import CartList from './CartList';
+import { useEffect, useState } from 'react';
+import { Link, useParams, useNavigate } from 'react-router-dom';
+import CartList from './CartList';
 import './Cart.scss';
-
 export default function Cart() {
   const [product, setProduct] = useState([]);
   const [count, setCount] = useState(1);
@@ -26,19 +28,17 @@ export default function Cart() {
         if (data.message === '상품이 장바구니에 추가되었습니다.') {
           navigate('/pay');
         } else {
-          alert('다시 요청 해 주세요');
+          alert('다음');
         }
       });
   };
-
   useEffect(() => {
-    fetch(`http://10.58.52.55:8000/products/detail/1`)
+    fetch(`http://10.58.52.55:8000/products/detail/17`)
       .then(response => response.json())
       .then(({ data }) => {
         setProduct(data[0]);
       });
   }, []);
-
   return (
     <div className="cart">
       <div key={productId} className="cartContaniner">
@@ -58,7 +58,6 @@ export default function Cart() {
               // categoryName,
               // images,
             } = productState;
-
             return (
               <CartList
                 key={productId}

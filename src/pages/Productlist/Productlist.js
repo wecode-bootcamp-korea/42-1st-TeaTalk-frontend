@@ -8,7 +8,6 @@ function Productlist() {
 
   useEffect(() => {
     fetch('http://10.58.52.55:8000/products')
-      // fetch('/data/productList.json')
       .then(response => response.json())
       .then(({ data }) => setProduct(data));
   }, []);
@@ -45,12 +44,12 @@ function Productlist() {
             {product.map(product => {
               return (
                 <div className="itemBox">
-                  <Product key={product.productId} product={product} />;
+                  <Product key={product.productId} product={product} />
                 </div>
               );
             })}
           </div>
-          <div className="pageNation">pagenation</div>
+          {/* <div className="pageNation">pagenation</div> */}
         </div>
       </div>
     </div>

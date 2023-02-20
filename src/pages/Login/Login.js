@@ -16,7 +16,7 @@ function Login() {
   };
 
   const goToMain = () => {
-    fetch('http://10.58.52.197:8000/users/login', {
+    fetch('http://10.58.52.55:8000/users/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',

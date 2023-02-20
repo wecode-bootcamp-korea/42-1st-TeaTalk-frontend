@@ -3,12 +3,7 @@ import './Product.scss';
 
 function Product({ product }) {
   return (
-    <div
-      className="product"
-      key={product.productId}
-      price={product.price}
-      // onClick={() => goToDetail(product.productId)}
-    >
+    <div className="product" key={product.productId} price={product.price}>
       <Link key={product.productId} to={`/productdetail/${product.productId}`}>
         <div className="productImgBox">
           <img className="productImg" src={product.productMainImage} />

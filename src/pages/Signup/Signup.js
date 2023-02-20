@@ -26,7 +26,7 @@ function Signup() {
   };
 
   const goToMain = () => {
-    fetch('http://10.58.52.197:8000/users/signup', {
+    fetch('http://10.58.52.55:8000/users/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -118,6 +118,7 @@ function Signup() {
             type="password"
             placeholder="비밀번호 확인"
             onChange={getSignupInfo}
+            name="checkPw"
           />
           <p
             className={
